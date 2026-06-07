@@ -13,7 +13,7 @@ export const FORM_LINK_PROPS = {
 } as const;
 
 export const SOCIAL_TITLE =
-  "ぽん通知（仮称） | LINEほどじゃない合図を、腕からワンタップで";
+  "ぽん通知（仮称） | 動物たちのかわいい合図を、“ワン”タップで";
 
 export const SOCIAL_DESCRIPTION =
-  "Apple Watchやロック画面から肉球ボタンを押すだけ。小さな動物が「帰るよ」「大丈夫？」を届ける合図アプリを検証中です。";
+  "腕からでも、ロック画面からでも。肉球ボタンを押すだけで、小さな犬があなたの気持ちを届ける合図アプリを検証中です。";

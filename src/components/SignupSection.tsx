@@ -12,33 +12,41 @@ export function SignupSection() {
   return (
     <section
       id="signup"
-      className="scroll-mt-8 bg-[#2b211b] px-5 py-14 text-white sm:px-8 lg:py-20"
+      className="scroll-mt-8 bg-[#fff1e6] px-5 py-14 text-[#2b211b] sm:px-8 lg:py-20"
     >
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
         <div>
-          <p className="mb-3 text-sm font-bold text-[#ffc9a8]">Pre-register</p>
-          <h2 className="text-3xl font-bold leading-[1.35] sm:text-4xl">
+          <p className="mb-3 text-sm font-bold text-[#9a5633]">Pre-register</p>
+          <h2 className="text-3xl font-black leading-[1.35] sm:text-4xl">
             開発通知を受け取る
           </h2>
-          <p className="mt-4 text-base leading-8 text-[#eadcd2] sm:text-lg">
-            使ってみたい相手、送信方法、好きな動物を教えてください。
-            回答は外部フォームで受け取る前提の導線にしています。
+          <p className="mt-4 text-base leading-8 text-[#66564c] sm:text-lg">
+            使ってみたい相手、押したい送信方法、好きな動物を教えてください。
+            回答は需要検証とMVPの優先順位づけに使います。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               {...FORM_LINK_PROPS}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#f08a4b] px-5 py-3 font-bold text-[#2b211b] transition hover:bg-[#ff9f66]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ff7f5f] px-5 py-3 font-bold text-white shadow-[0_14px_28px_rgba(225,89,62,0.22)] transition hover:bg-[#ee6e4f]"
             >
               <Mail className="h-5 w-5" aria-hidden="true" />
               開発通知を受け取る
             </a>
             <a
               {...FORM_LINK_PROPS}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#f1c7ad] px-5 py-3 font-bold text-white transition hover:bg-white/10"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#e8b596] bg-white/90 px-5 py-3 font-bold text-[#7a482b] transition hover:bg-white"
             >
               <Send className="h-5 w-5" aria-hidden="true" />
               使ってみたい
             </a>
+          </div>
+          <div className="mt-8 rounded-lg border border-[#efd8c6] bg-white/75 p-4">
+            <p className="text-sm font-bold leading-7 text-[#7a482b]">
+              いま知りたいこと
+            </p>
+            <p className="mt-2 text-sm leading-7 text-[#66564c]">
+              Apple Watchから押したいか、ロック画面から押したいか、犬の合図にどれくらい魅力を感じるかを見ています。
+            </p>
           </div>
         </div>
 
@@ -47,12 +55,12 @@ export function SignupSection() {
           action={FORM_URL}
           method="get"
           target="_blank"
-          className="rounded-lg border border-white/14 bg-white p-4 text-[#2b211b] shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6"
+          className="rounded-lg border border-[#efd8c6] bg-white p-4 text-[#2b211b] shadow-[0_20px_48px_rgba(109,63,37,0.12)] sm:p-6"
         >
           <div className="grid gap-4 sm:gap-5">
             <a
               {...FORM_LINK_PROPS}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#f08a4b] px-5 py-3 text-center font-bold text-[#2b211b] transition hover:bg-[#ff9f66]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ff7f5f] px-5 py-3 text-center font-bold text-white transition hover:bg-[#ee6e4f]"
             >
               <Send className="h-5 w-5" aria-hidden="true" />
               30秒でフォームに回答する

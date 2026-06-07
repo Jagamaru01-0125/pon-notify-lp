@@ -1,6 +1,7 @@
 import { AnimalSection } from "@/components/AnimalSection";
 import { GestureCards } from "@/components/GestureCards";
 import { Hero } from "@/components/Hero";
+import { MobileStickyCta } from "@/components/MobileStickyCta";
 import { ProblemSection } from "@/components/ProblemSection";
 import { ReasonSection } from "@/components/ReasonSection";
 import { SafetySection } from "@/components/SafetySection";
@@ -11,7 +12,7 @@ import { ValidationSection } from "@/components/ValidationSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="pb-20 sm:pb-0">
       <Hero />
       <ProblemSection />
       <SolutionSection />
@@ -22,6 +23,7 @@ export default function Home() {
       <SafetySection />
       <ValidationSection />
       <SignupSection />
+      <MobileStickyCta />
     </main>
   );
 }

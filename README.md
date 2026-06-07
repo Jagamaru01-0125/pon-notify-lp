@@ -65,6 +65,8 @@ npm run build
 
 ## Vercel公開手順
 
+公開URL: https://pon-notify-lp.vercel.app/
+
 1. GitHubに `pon-notify-lp` リポジトリを作成します。
 2. このリポジトリをGitHubへpushします。
 3. Vercelで「Add New Project」からGitHubリポジトリを選択します。
@@ -74,7 +76,13 @@ npm run build
 
 ## フォーム差し替え方法
 
-`src/constants/form.ts` の `FORM_ACTION_URL` をGoogleフォーム、Tally、FormspreeなどのURLに差し替えてください。
+フォームURLは `src/constants/site.ts` にまとめています。
+
+```ts
+export const FALLBACK_FORM_URL = "https://tally.so/r/replace-pon-notify";
+```
+
+Googleフォーム、Tally、Formspreeなどの本番URLに差し替えてください。Vercel環境変数で差し替える場合は `NEXT_PUBLIC_FORM_URL` にフォームURLを設定すると、コードを触らずにリンク先を変更できます。
 
 現在のフォームは仮実装です。静的LPとして扱いやすくするため、ログイン、ユーザー管理、Push通知、送信APIは実装していません。
 

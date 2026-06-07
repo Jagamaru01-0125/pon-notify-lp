@@ -1,5 +1,3 @@
-export const FORM_ACTION_URL = "https://tally.so/r/replace-pon-notify";
-
 export const partnerOptions = ["恋人", "家族", "親", "子ども", "友人", "その他"] as const;
 
 export const senderOptions = [

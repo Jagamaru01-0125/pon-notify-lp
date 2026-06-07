@@ -2,15 +2,18 @@ import { Mail, Send } from "lucide-react";
 
 import {
   animalOptions,
-  FORM_ACTION_URL,
   partnerOptions,
   senderOptions,
   signalOptions,
 } from "@/constants/form";
+import { FORM_LINK_PROPS, FORM_URL } from "@/constants/site";
 
 export function SignupSection() {
   return (
-    <section id="signup" className="bg-[#2b211b] px-5 py-16 text-white sm:px-8 lg:py-20">
+    <section
+      id="signup"
+      className="scroll-mt-8 bg-[#2b211b] px-5 py-14 text-white sm:px-8 lg:py-20"
+    >
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
         <div>
           <p className="mb-3 text-sm font-bold text-[#ffc9a8]">Pre-register</p>
@@ -19,19 +22,19 @@ export function SignupSection() {
           </h2>
           <p className="mt-4 text-base leading-8 text-[#eadcd2] sm:text-lg">
             使ってみたい相手、送信方法、好きな動物を教えてください。
-            外部フォームに差し替えやすい仮フォームとして実装しています。
+            回答は外部フォームで受け取る前提の導線にしています。
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#signup-form"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#f08a4b] px-5 py-3 font-bold text-[#2b211b] transition hover:bg-[#ff9f66]"
+              {...FORM_LINK_PROPS}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#f08a4b] px-5 py-3 font-bold text-[#2b211b] transition hover:bg-[#ff9f66]"
             >
               <Mail className="h-5 w-5" aria-hidden="true" />
               開発通知を受け取る
             </a>
             <a
-              href="#signup-form"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#f1c7ad] px-5 py-3 font-bold text-white transition hover:bg-white/10"
+              {...FORM_LINK_PROPS}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#f1c7ad] px-5 py-3 font-bold text-white transition hover:bg-white/10"
             >
               <Send className="h-5 w-5" aria-hidden="true" />
               使ってみたい
@@ -41,12 +44,20 @@ export function SignupSection() {
 
         <form
           id="signup-form"
-          action={FORM_ACTION_URL}
+          action={FORM_URL}
           method="get"
           target="_blank"
-          className="rounded-lg border border-white/14 bg-white p-5 text-[#2b211b] shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6"
+          className="rounded-lg border border-white/14 bg-white p-4 text-[#2b211b] shadow-[0_20px_60px_rgba(0,0,0,0.22)] sm:p-6"
         >
-          <div className="grid gap-5">
+          <div className="grid gap-4 sm:gap-5">
+            <a
+              {...FORM_LINK_PROPS}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#f08a4b] px-5 py-3 text-center font-bold text-[#2b211b] transition hover:bg-[#ff9f66]"
+            >
+              <Send className="h-5 w-5" aria-hidden="true" />
+              30秒でフォームに回答する
+            </a>
+
             <label className="grid gap-2">
               <span className="text-sm font-bold">メールアドレス</span>
               <input
@@ -127,14 +138,14 @@ export function SignupSection() {
 
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#6d3f25] px-5 py-3 font-bold text-white transition hover:bg-[#55311d]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#6d3f25] px-5 py-3 font-bold text-white transition hover:bg-[#55311d]"
             >
               <Send className="h-5 w-5" aria-hidden="true" />
               開発通知を受け取る
             </button>
 
             <p className="text-xs leading-6 text-[#7d6d62]">
-              送信先は仮のTally URLです。READMEの手順に沿ってGoogleフォームやTallyのURLへ差し替えできます。
+              回答内容は開発通知と需要検証の参考にします。
             </p>
           </div>
         </form>

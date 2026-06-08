@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, MessageCircleOff } from "lucide-react";
+import { ArrowRight, MessageCircleOff, PawPrint } from "lucide-react";
 
 import { SectionHeader } from "@/components/SectionHeader";
 import { imageAssets } from "@/constants/assets";
@@ -24,17 +24,25 @@ const flowItems = [
 
 export function MotionSection() {
   return (
-    <section className="px-5 py-14 sm:px-8 lg:py-20">
-      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
+    <section className="px-5 py-16 sm:px-8 lg:py-24">
+      <div className="section-shell premium-card-strong grid gap-8 overflow-hidden p-5 sm:p-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:p-8">
         <div>
           <SectionHeader
             eyebrow="Motion"
             title="届くのは、メッセージじゃなくて、あなたたちだけの合図。"
             description="動物が走ってきたり、しっぽを振ったり、前足でちょんちょんしたり。そのしぐさに、どんな意味を込めるかはふたり次第。もちろん、必要なら短い文字を添えることもできます。"
           />
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#fff0e6] px-3 py-2 text-sm font-bold text-[#7a482b]">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#fff0e6] px-4 py-2 text-sm font-bold text-[#7a482b]">
             <MessageCircleOff className="h-4 w-4" aria-hidden="true" />
             メッセージではなく、ふたりだけの合図
+          </div>
+          <div className="mt-5 grid gap-2 text-sm font-bold text-[#7a482b]">
+            {["文字なしでも伝わる", "短い文字は添えられる", "意味はふたりで決められる"].map((label) => (
+              <div key={label} className="flex items-center gap-2">
+                <PawPrint className="h-4 w-4 text-[#f07945]" aria-hidden="true" />
+                {label}
+              </div>
+            ))}
           </div>
         </div>
 
@@ -51,7 +59,7 @@ export function MotionSection() {
           <div className="relative z-10 grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-center">
             {flowItems.map((item, index) => (
               <div key={item.label} className="contents">
-                <div className="rounded-lg bg-[#fff8ef]/92 p-3 text-center shadow-sm">
+                <div className="rounded-lg bg-[#fff8ef]/95 p-3 text-center shadow-sm">
                   <p className="mb-2 text-xs font-black text-[#7a482b]">
                     {item.label}
                   </p>
@@ -67,7 +75,7 @@ export function MotionSection() {
                 </div>
                 {index < flowItems.length - 1 ? (
                   <ArrowRight
-                    className="mx-auto hidden h-6 w-6 text-[#ff8f68] sm:block"
+                    className="mx-auto hidden h-7 w-7 rounded-full bg-white p-1 text-[#ff8f68] shadow-sm sm:block"
                     aria-hidden="true"
                   />
                 ) : null}

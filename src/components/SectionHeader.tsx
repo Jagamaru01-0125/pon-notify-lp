@@ -15,18 +15,18 @@ export function SectionHeader({
     <div
       className={
         align === "center"
-          ? "mx-auto mb-9 max-w-2xl text-center"
-          : "mb-9 max-w-2xl"
+          ? "mx-auto mb-10 max-w-2xl text-center sm:mb-12"
+          : "mb-8 max-w-2xl sm:mb-10"
       }
     >
       {eyebrow ? (
         <p className="mb-3 text-sm font-bold text-[#9a5633]">{eyebrow}</p>
       ) : null}
-      <h2 className="text-[1.85rem] font-bold leading-[1.35] text-[#2b211b] sm:text-4xl">
+      <h2 className="text-balance text-[1.72rem] font-black leading-[1.35] text-[#2b211b] sm:text-4xl lg:text-[2.75rem]">
         {title}
       </h2>
       {description ? (
-        <p className="mt-4 text-base leading-8 text-[#66564c] sm:text-lg">
+        <p className="mt-4 text-base font-medium leading-8 text-[#66564c] sm:text-lg sm:leading-9">
           {description}
         </p>
       ) : null}

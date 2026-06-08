@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Settings2, Smartphone, Watch } from "lucide-react";
+import { PawPrint, Settings2, Smartphone, Watch } from "lucide-react";
 
 import { SectionHeader } from "@/components/SectionHeader";
 import { imageAssets } from "@/constants/assets";
@@ -53,8 +53,8 @@ function PhoneSettingsMock() {
 
 export function SendSourcesSection() {
   return (
-    <section className="noise px-5 py-14 sm:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="noise px-5 py-16 sm:px-8 lg:py-24">
+      <div className="section-shell">
         <SectionHeader
           eyebrow="Send from"
           title="どこから送れる？"
@@ -62,18 +62,33 @@ export function SendSourcesSection() {
           align="center"
         />
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 lg:grid-cols-[1.08fr_1.08fr_0.84fr]">
           {sendSources.map(({ title, description, detail, icon: Icon, image, alt, size }) => (
             <article
               key={title}
-              className="rounded-lg border border-[#efd8c6] bg-white/92 p-5 shadow-[0_12px_30px_rgba(109,63,37,0.08)]"
+              className={`premium-card relative overflow-hidden p-5 ${
+                size === "small" ? "bg-white/80" : "bg-white/90"
+              }`}
             >
-              <div className="mb-4 flex items-center gap-2 text-sm font-bold text-[#8a4c2c]">
-                <Icon className="h-4 w-4" aria-hidden="true" />
+              {size === "large" ? (
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-[#fff0e6] px-3 py-1 text-xs font-black text-[#9a5633]">
+                  <PawPrint className="h-3.5 w-3.5" aria-hidden="true" />
+                  主役
+                </span>
+              ) : null}
+
+              <div className="mb-4 flex items-center gap-2 pr-16 text-sm font-black text-[#8a4c2c]">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-[#fff0e6] text-[#f07945]">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
                 {description}
               </div>
 
-              <div className="relative mb-4 grid min-h-52 place-items-center overflow-hidden rounded-lg bg-[#fff7ec]">
+              <div
+                className={`relative mb-4 grid place-items-center overflow-hidden rounded-lg bg-[#fff7ec] shadow-inner ${
+                  size === "small" ? "min-h-44" : "min-h-60"
+                }`}
+              >
                 {image ? (
                   <Image
                     src={image}
@@ -91,10 +106,12 @@ export function SendSourcesSection() {
                 )}
               </div>
 
-              <h3 className="text-lg font-black leading-7 text-[#2b211b]">
+              <h3 className="text-xl font-black leading-8 text-[#2b211b]">
                 {title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-[#66564c]">{detail}</p>
+              <p className="mt-3 text-sm font-medium leading-7 text-[#66564c]">
+                {detail}
+              </p>
             </article>
           ))}
         </div>

@@ -30,8 +30,9 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <section className="bg-[#fffdf9] px-5 py-14 sm:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
+    <section className="relative overflow-hidden bg-[#fffdf9] px-5 py-16 sm:px-8 lg:py-24">
+      <div className="pointer-events-none absolute inset-x-0 top-8 h-40 bg-[radial-gradient(circle_at_50%_50%,rgba(255,190,130,0.16),transparent_38rem)]" />
+      <div className="section-shell relative">
         <SectionHeader
           eyebrow="How it works"
           title="使い方は、たった3ステップ"
@@ -39,38 +40,48 @@ export function HowItWorksSection() {
           align="center"
         />
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="premium-card-strong relative overflow-hidden p-3 sm:p-4 lg:p-5">
+          <Image
+            src={imageAssets.motionDivider}
+            alt=""
+            width={1536}
+            height={1024}
+            sizes="100vw"
+            className="pointer-events-none absolute inset-x-0 top-[42%] hidden h-28 w-full object-cover opacity-20 lg:block"
+          />
+          <div className="relative grid gap-4 lg:grid-cols-3">
           {steps.map((step, index) => (
             <article
               key={step.title}
-              className="relative rounded-lg border border-[#f0d8c6] bg-white p-4 shadow-[0_12px_30px_rgba(109,63,37,0.08)]"
+              className="relative rounded-lg border border-[#f0d8c6] bg-white/90 p-4 shadow-[0_12px_30px_rgba(109,63,37,0.07)] backdrop-blur"
             >
-              <div className="mb-4 flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-[#ff8f68] text-sm font-black text-white">
+              <div className="mb-4 flex items-start gap-3">
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[#ff8f68] text-sm font-black text-white shadow-[0_8px_18px_rgba(240,122,82,0.24)]">
                   {index + 1}
                 </span>
-                <h3 className="text-xl font-black text-[#2b211b]">
-                  {step.title}
-                </h3>
+                <div>
+                  <h3 className="text-xl font-black text-[#2b211b]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-sm font-bold leading-6 text-[#8a4c2c]">
+                    {step.description}
+                  </p>
+                </div>
               </div>
 
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#fff7ec]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[#fff7ec] shadow-inner">
                 <Image
                   src={step.image}
                   alt={step.alt}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  className={`object-cover ${step.objectPosition}`}
+                  className={`object-cover ${step.objectPosition} transition duration-500 hover:scale-[1.03]`}
                 />
               </div>
 
-              <p className="mt-4 text-sm font-medium leading-7 text-[#66564c]">
-                {step.description}
-              </p>
-
               {index < steps.length - 1 ? (
                 <ArrowRight
-                  className="absolute -right-3 top-1/2 hidden h-6 w-6 text-[#ff8f68] lg:block"
+                  className="absolute -right-3 top-1/2 z-10 hidden h-7 w-7 rounded-full bg-white p-1 text-[#ff8f68] shadow-sm lg:block"
                   aria-hidden="true"
                 />
               ) : (
@@ -81,6 +92,7 @@ export function HowItWorksSection() {
               )}
             </article>
           ))}
+          </div>
         </div>
       </div>
     </section>

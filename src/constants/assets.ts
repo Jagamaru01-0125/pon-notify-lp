@@ -1,0 +1,18 @@
+export const imageAssets = {
+  animalsLineup: "/assets/animals-lineup-dog-cat-rabbit-bear.png",
+  ctaDog: "/assets/cta-dog-delivering-letter-wide.png",
+  dogCarryingHeart: "/assets/dog-carrying-heart.png",
+  dogRunning: "/assets/cta-dog-delivering-letter-wide.png",
+  dogSleeping: "/assets/dog-sleeping-curled.png",
+  dogTapPaw: "/assets/dog-tap-paw-card.png",
+  dogTiltHead: "/assets/dog-tilt-head-card.png",
+  dogWagTail: "/assets/dog-wag-tail-standing.png",
+  hero: "/assets/hero-watch-tap-dog-run-deliver-wide.png",
+  lockscreenWidget: "/assets/lockscreen-paw-widget-clean.png",
+  motionDivider: "/assets/divider-paw-trail-wide.png",
+  notificationIcon: "/assets/icon-paw-envelope-bell.png",
+  receiveDevices: "/assets/receive-phone-watch-dog-run.png",
+  roomBackground: "/assets/background-warm-room-sofa.png",
+  safetyIcons: "/assets/icons-safety-no-chat-no-location.png",
+  watchPawTap: "/assets/watch-paw-button-tap-hand.png",
+} as const;

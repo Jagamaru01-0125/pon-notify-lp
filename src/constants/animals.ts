@@ -1,15 +1,9 @@
 export const animals = [
   {
-    name: "柴犬",
-    status: "初期候補",
+    name: "犬",
+    status: "初期MVP",
     description: "走る、しっぽを振る、前足でちょんちょんなど、最初の合図を届ける相棒です。",
     icon: "🐕",
-  },
-  {
-    name: "トイプードル",
-    status: "将来候補",
-    description: "犬種を選べる体験として、毛色や雰囲気の違いを出せる候補です。",
-    icon: "🐩",
   },
   {
     name: "猫",
@@ -18,9 +12,15 @@ export const animals = [
     icon: "🐈",
   },
   {
-    name: "うさぎ・くま",
+    name: "うさぎ",
     status: "将来候補",
-    description: "跳ねる、ゆっくり歩くなど、動物ごとの足あとや肉球表現を検討します。",
+    description: "跳ねる、耳を動かすなど、小さな動きの合図を検討します。",
     icon: "🐇",
+  },
+  {
+    name: "くま",
+    status: "将来候補",
+    description: "ゆっくり歩く、手を振るなど、落ち着いた合図の候補です。",
+    icon: "🐻",
   },
 ] as const;

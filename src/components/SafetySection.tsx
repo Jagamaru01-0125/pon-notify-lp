@@ -1,64 +1,65 @@
+import Image from "next/image";
 import {
   BellOff,
   Link2Off,
-  MapPinned,
+  MapPinOff,
   ShieldCheck,
-  UserCheck,
   UserRoundX,
   UsersRound,
 } from "lucide-react";
 
 import { SectionHeader } from "@/components/SectionHeader";
+import { imageAssets } from "@/constants/assets";
 
 const safetyItems = [
-  { label: "初期MVPでは親しい1人だけ", icon: UsersRound },
+  { label: "最初は親しい1人だけ", icon: UsersRound },
   { label: "チャットなし", icon: Link2Off },
-  { label: "位置情報なし", icon: ShieldCheck },
-  { label: "通知のオン/オフ", icon: BellOff },
+  { label: "通知オン/オフ", icon: BellOff },
   { label: "ペア解除", icon: UserRoundX },
-  { label: "ブロック", icon: UserRoundX },
-  { label: "相手の同意を前提にしたペア登録", icon: UserCheck },
-  { label: "位置情報を使う場合も明確な同意が前提", icon: ShieldCheck },
-];
+  { label: "ブロック", icon: ShieldCheck },
+  { label: "位置情報は初期MVPでは使いません", icon: MapPinOff },
+] as const;
 
 export function SafetySection() {
   return (
     <section className="bg-[#fffdf9] px-5 py-14 sm:px-8 lg:py-20">
-      <div className="mx-auto max-w-6xl">
-        <SectionHeader
-          eyebrow="Safety"
-          title="位置情報なし。チャットなし。親しい1人だけ。"
-          description="最初から何でもできるアプリにせず、軽い合図に必要な範囲だけを検証します。"
-          align="center"
-        />
+      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <SectionHeader
+            eyebrow="Safety"
+            title="親しい人と、安心して使えるように"
+            description="安心設計は大事にしながら、重く見せすぎない。親しい人へ小さな合図を届けるために必要な範囲だけを検証します。"
+          />
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {safetyItems.map(({ label, icon: Icon }) => (
-            <div
-              key={label}
-              className="flex items-center gap-3 rounded-lg border border-[#d9e9e3] bg-[#f7fffb] px-4 py-4"
-            >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#dceee8] text-[#315f52]">
-                <Icon className="h-4 w-4" aria-hidden="true" />
-              </span>
-              <span className="font-bold leading-7 text-[#33423d]">{label}</span>
-            </div>
-          ))}
+          <div className="grid gap-3 sm:grid-cols-2">
+            {safetyItems.map(({ label, icon: Icon }) => (
+              <div
+                key={label}
+                className="flex items-center gap-3 rounded-lg border border-[#d9e9e3] bg-[#f7fffb] px-4 py-4 shadow-[0_8px_20px_rgba(49,95,82,0.05)]"
+              >
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#dceee8] text-[#315f52]">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <span className="font-bold leading-7 text-[#33423d]">
+                  {label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="mt-5 grid gap-4 rounded-lg border border-[#efd8c6] bg-[#fff8ef] p-5 sm:grid-cols-[auto_1fr] sm:items-center">
-          <div className="grid h-20 w-20 place-items-center rounded-lg bg-white text-[#f07945] shadow-sm">
-            <MapPinned className="h-9 w-9" aria-hidden="true" />
-          </div>
-          <div>
-            <h3 className="text-lg font-black text-[#2b211b]">
-              将来的な場所の合図は、同意した相手だけ。
-            </h3>
-            <p className="mt-2 text-sm leading-7 text-[#66564c]">
-              将来的には、犬が小さな地図メモをくわえて走ってくるような、安心感のある表現も検討中です。
-              初期MVPでは位置情報を使いません。使う場合も、明確な同意、オン/オフ、相手ごとの許可を前提にします。
-            </p>
-          </div>
+        <div className="overflow-hidden rounded-lg border border-[#d9e9e3] bg-[#f7fffb] p-4 shadow-[0_16px_42px_rgba(49,95,82,0.08)]">
+          <Image
+            src={imageAssets.safetyIcons}
+            alt="チャットなし、通知設定、ペア解除、位置情報なしなど安心設計を表すアイコン"
+            width={1536}
+            height={1024}
+            sizes="(min-width: 1024px) 48vw, 100vw"
+            className="h-auto w-full rounded-lg object-cover"
+          />
+          <p className="mt-4 rounded-lg bg-white/78 px-4 py-3 text-sm font-bold leading-7 text-[#315f52]">
+            初期LPでは、Push通知・Watch本実装・ロック画面ウィジェット本実装・ログイン・課金はまだ扱いません。
+          </p>
         </div>
       </div>
     </section>

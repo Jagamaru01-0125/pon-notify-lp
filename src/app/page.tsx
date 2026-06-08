@@ -8,7 +8,6 @@ import { ReasonSection } from "@/components/ReasonSection";
 import { SafetySection } from "@/components/SafetySection";
 import { SendSourcesSection } from "@/components/SendSourcesSection";
 import { SignupSection } from "@/components/SignupSection";
-import { ValidationSection } from "@/components/ValidationSection";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <AnimalSection />
       <ReasonSection />
       <SafetySection />
-      <ValidationSection />
       <SignupSection />
       <MobileStickyCta />
     </main>

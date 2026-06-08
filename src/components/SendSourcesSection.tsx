@@ -1,31 +1,55 @@
+import Image from "next/image";
 import { Settings2, Smartphone, Watch } from "lucide-react";
 
-import { PawButton } from "@/components/PawButton";
 import { SectionHeader } from "@/components/SectionHeader";
+import { imageAssets } from "@/constants/assets";
 
 const sendSources = [
   {
     title: "Apple Watch / スマートウォッチ",
-    description: "腕からすぐ送れる",
-    detail: "手がふさがっていても、親しい相手へワンタップ。",
+    description: "腕からすぐに、ふたりの合図を送れる",
+    detail: "移動中や家事の途中でも、肉球を押すだけで、ふたりで決めた合図を送る体験を想定しています。",
     icon: Watch,
-    tone: "bg-[#11100f] text-[#ffe0a9]",
+    image: imageAssets.watchPawTap,
+    alt: "Apple Watchの肉球ボタンを指で押している様子",
+    size: "large",
   },
   {
     title: "ロック画面ウィジェット",
-    description: "スマホを開かずに送れる",
-    detail: "Apple Watchを持っていない人にも伝わる入口に。",
+    description: "スマホを開かずに、肉球だけ押せる",
+    detail: "アプリを探さず、ロック画面の肉球ボタンからすぐに送れる未来を検証します。",
     icon: Smartphone,
-    tone: "bg-[#e9f6ef] text-[#315f52]",
+    image: imageAssets.lockscreenWidget,
+    alt: "ロック画面に肉球ウィジェットが表示されているスマホ",
+    size: "large",
   },
   {
     title: "スマホアプリ",
-    description: "相手登録や設定をする",
-    detail: "合図の相手、通知、動物の設定を補助する画面。",
+    description: "相手登録や、合図の意味をカスタマイズ",
+    detail: "主役はWatchやロック画面。スマホアプリは相手登録や合図の意味を変えるための補助画面です。",
     icon: Settings2,
-    tone: "bg-[#fff0e6] text-[#8a4c2c]",
+    image: null,
+    alt: "",
+    size: "small",
   },
 ] as const;
+
+function PhoneSettingsMock() {
+  return (
+    <div className="mx-auto w-32 rounded-lg border border-[#ead6c6] bg-[#fffaf3] p-3 text-left shadow-sm">
+      <div className="mb-3 flex items-center gap-2">
+        <span className="grid h-7 w-7 place-items-center rounded-full bg-[#ffb58d] text-white">
+          <Settings2 className="h-4 w-4" aria-hidden="true" />
+        </span>
+        <div className="h-2 w-14 rounded-full bg-[#d7bba7]" />
+      </div>
+      <div className="mb-2 h-2 rounded-full bg-[#f1d8c8]" />
+      <div className="mb-2 h-2 w-20 rounded-full bg-[#f1d8c8]" />
+      <div className="mb-3 h-8 rounded-lg bg-white shadow-inner" />
+      <div className="h-7 rounded-lg bg-[#ff8f68]" />
+    </div>
+  );
+}
 
 export function SendSourcesSection() {
   return (
@@ -34,37 +58,42 @@ export function SendSourcesSection() {
         <SectionHeader
           eyebrow="Send from"
           title="どこから送れる？"
-          description="主役はApple Watchやスマートウォッチ。スマホのロック画面ウィジェットからも、肉球ボタンで送れる構想です。"
+          description="主役はApple Watchやスマートウォッチ。ロック画面からも、スマホを開かずに肉球だけ押せる構想です。"
           align="center"
         />
 
         <div className="grid gap-4 md:grid-cols-3">
-          {sendSources.map(({ title, description, detail, icon: Icon, tone }) => (
+          {sendSources.map(({ title, description, detail, icon: Icon, image, alt, size }) => (
             <article
               key={title}
-              className="rounded-lg border border-[#efd8c6] bg-white/90 p-5 shadow-[0_12px_30px_rgba(109,63,37,0.08)]"
+              className="rounded-lg border border-[#efd8c6] bg-white/92 p-5 shadow-[0_12px_30px_rgba(109,63,37,0.08)]"
             >
-              <div className={`mb-4 flex min-h-36 items-center justify-center rounded-lg ${tone}`}>
-                <div className="text-center">
-                  <Icon className="mx-auto mb-3 h-7 w-7" aria-hidden="true" />
-                  {title.includes("スマホアプリ") ? (
-                    <div className="mx-auto w-24 rounded-lg bg-white p-3 text-left text-[#7a482b] shadow-sm">
-                      <div className="mb-2 h-2 w-10 rounded-full bg-[#ffb58d]" />
-                      <div className="mb-2 h-2 rounded-full bg-[#f1d8c8]" />
-                      <div className="mb-2 h-2 rounded-full bg-[#f1d8c8]" />
-                      <div className="h-2 w-14 rounded-full bg-[#f1d8c8]" />
-                    </div>
-                  ) : (
-                    <PawButton label="ぽん" size="sm" className="mx-auto" />
-                  )}
-                </div>
+              <div className="mb-4 flex items-center gap-2 text-sm font-bold text-[#8a4c2c]">
+                <Icon className="h-4 w-4" aria-hidden="true" />
+                {description}
               </div>
+
+              <div className="relative mb-4 grid min-h-52 place-items-center overflow-hidden rounded-lg bg-[#fff7ec]">
+                {image ? (
+                  <Image
+                    src={image}
+                    alt={alt}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className={
+                      size === "large"
+                        ? "object-cover object-center"
+                        : "object-contain"
+                    }
+                  />
+                ) : (
+                  <PhoneSettingsMock />
+                )}
+              </div>
+
               <h3 className="text-lg font-black leading-7 text-[#2b211b]">
                 {title}
               </h3>
-              <p className="mt-2 text-base font-bold text-[#f07945]">
-                {description}
-              </p>
               <p className="mt-3 text-sm leading-7 text-[#66564c]">{detail}</p>
             </article>
           ))}

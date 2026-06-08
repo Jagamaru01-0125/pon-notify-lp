@@ -13,6 +13,7 @@
 
 * {
   box-sizing: border-box;
+  min-width: 0;
 }
 
 html {
@@ -34,6 +35,26 @@ input,
 select,
 textarea {
   font: inherit;
+}
+
+h1,
+h2,
+h3,
+p,
+a,
+button,
+label,
+li,
+span {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+h1,
+h2,
+h3,
+p {
+  line-break: anywhere;
 }
 
 ::selection {
@@ -88,6 +109,10 @@ textarea {
   animation: dog-dash 3.2s ease-in-out infinite;
 }
 
+.dog-float {
+  animation: dog-float 4.2s ease-in-out infinite;
+}
+
 @keyframes dog-dash {
   0%,
   100% {
@@ -95,6 +120,16 @@ textarea {
   }
   45% {
     transform: translateX(10px) translateY(-5px) rotate(3deg);
+  }
+}
+
+@keyframes dog-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1deg);
   }
 }
 
@@ -122,6 +157,7 @@ textarea {
 
 @media (prefers-reduced-motion: reduce) {
   .dog-dash,
+  .dog-float,
   .paw-button {
     animation: none;
     transition: none;

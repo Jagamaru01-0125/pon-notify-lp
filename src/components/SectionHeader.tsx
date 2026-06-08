@@ -22,7 +22,7 @@ export function SectionHeader({
       {eyebrow ? (
         <p className="mb-3 text-sm font-bold text-[#9a5633]">{eyebrow}</p>
       ) : null}
-      <h2 className="text-3xl font-bold leading-[1.35] text-[#2b211b] sm:text-4xl">
+      <h2 className="text-[1.85rem] font-bold leading-[1.35] text-[#2b211b] sm:text-4xl">
         {title}
       </h2>
       {description ? (

@@ -1,4 +1,5 @@
-import { Mail, Send } from "lucide-react";
+import Image from "next/image";
+import { PawPrint } from "lucide-react";
 
 import {
   animalOptions,
@@ -6,6 +7,7 @@ import {
   senderOptions,
   signalOptions,
 } from "@/constants/form";
+import { imageAssets } from "@/constants/assets";
 import { FORM_LINK_PROPS, FORM_URL } from "@/constants/site";
 
 export function SignupSection() {
@@ -14,39 +16,48 @@ export function SignupSection() {
       id="signup"
       className="scroll-mt-8 bg-[#fff1e6] px-5 py-14 text-[#2b211b] sm:px-8 lg:py-20"
     >
-      <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+      <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
-          <p className="mb-3 text-sm font-bold text-[#9a5633]">Pre-register</p>
+          <p className="mb-3 text-sm font-bold text-[#9a5633]">Final CTA</p>
           <h2 className="text-3xl font-black leading-[1.35] sm:text-4xl">
-            開発通知を受け取る
+            僕の肉球、触ってほしいワン。
           </h2>
           <p className="mt-4 text-base leading-8 text-[#66564c] sm:text-lg">
-            使ってみたい相手、押したい送信方法、好きな動物を教えてください。
-            回答は需要検証とMVPの優先順位づけに使います。
+            ぽん通知は、ただいま開発準備中です。気になった方には、
+            リリース前のお知らせをお届けします。
           </p>
+
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <a
               {...FORM_LINK_PROPS}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ff7f5f] px-5 py-3 font-bold text-white shadow-[0_14px_28px_rgba(225,89,62,0.22)] transition hover:bg-[#ee6e4f]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ff7f5f] px-5 py-3 font-bold text-white shadow-[0_14px_28px_rgba(225,89,62,0.22)] transition hover:-translate-y-0.5 hover:bg-[#ee6e4f]"
             >
-              <Mail className="h-5 w-5" aria-hidden="true" />
-              開発通知を受け取る
-            </a>
-            <a
-              {...FORM_LINK_PROPS}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg border border-[#e8b596] bg-white/90 px-5 py-3 font-bold text-[#7a482b] transition hover:bg-white"
-            >
-              <Send className="h-5 w-5" aria-hidden="true" />
-              使ってみたい
+              <PawPrint className="h-5 w-5" aria-hidden="true" />
+              肉球を押して、開発通知を受け取る
             </a>
           </div>
-          <div className="mt-8 rounded-lg border border-[#efd8c6] bg-white/75 p-4">
-            <p className="text-sm font-bold leading-7 text-[#7a482b]">
-              いま知りたいこと
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[#66564c]">
-              Apple Watchから押したいか、ロック画面から押したいか、犬の合図にどれくらい魅力を感じるかを見ています。
-            </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-[1fr_0.7fr] sm:items-end">
+            <div className="overflow-hidden rounded-lg border border-[#efd8c6] bg-white/65 shadow-[0_14px_34px_rgba(109,63,37,0.08)]">
+              <Image
+                src={imageAssets.ctaDog}
+                alt="手紙をくわえて走る犬"
+                width={1536}
+                height={1024}
+                sizes="(min-width: 1024px) 34vw, 100vw"
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <div className="mx-auto max-w-40">
+              <Image
+                src={imageAssets.notificationIcon}
+                alt="肉球付きの通知封筒アイコン"
+                width={1254}
+                height={1254}
+                sizes="160px"
+                className="h-auto w-full"
+              />
+            </div>
           </div>
         </div>
 
@@ -62,8 +73,8 @@ export function SignupSection() {
               {...FORM_LINK_PROPS}
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#ff7f5f] px-5 py-3 text-center font-bold text-white transition hover:bg-[#ee6e4f]"
             >
-              <Send className="h-5 w-5" aria-hidden="true" />
-              30秒でフォームに回答する
+              <PawPrint className="h-5 w-5" aria-hidden="true" />
+              肉球を押して、開発通知を受け取る
             </a>
 
             <label className="grid gap-2">
@@ -148,7 +159,7 @@ export function SignupSection() {
               type="submit"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-[#6d3f25] px-5 py-3 font-bold text-white transition hover:bg-[#55311d]"
             >
-              <Send className="h-5 w-5" aria-hidden="true" />
+              <PawPrint className="h-5 w-5" aria-hidden="true" />
               開発通知を受け取る
             </button>
 

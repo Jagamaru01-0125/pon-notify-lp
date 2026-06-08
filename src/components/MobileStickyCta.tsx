@@ -10,7 +10,7 @@ export function MobileStickyCta() {
         className="cta-paw-primary flex min-h-12 items-center justify-center gap-2 px-4 py-3 text-sm font-black text-white"
       >
         <PawPrint className="h-5 w-5" aria-hidden="true" />
-        肉球を押して、開発通知を受け取る
+        開発通知を受け取る
       </a>
     </div>
   );

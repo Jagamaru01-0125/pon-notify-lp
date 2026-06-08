@@ -8,7 +8,7 @@ export function GestureCards() {
     <section className="bg-[#fffdf9] px-5 py-16 sm:px-8 lg:py-24">
       <div className="section-shell">
         <SectionHeader
-          eyebrow="Gestures"
+          eyebrow="しぐさ"
           title="合図は、しぐさで届く"
           description="文字はつけても、つけなくてもOK。「帰るよ」「大丈夫？」みたいな意味も、ふたりで自由に変えられます。"
           align="center"
@@ -18,11 +18,11 @@ export function GestureCards() {
           {gestures.map((gesture) => (
             <article
               key={gesture.label}
-              className="premium-card group overflow-hidden bg-white p-3"
+              className="premium-card group overflow-hidden bg-white/90 p-3"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_50%_34%,#fff7ed_0%,#fff2e3_48%,#ffffff_100%)]">
+              <div className="relative aspect-[1.08/1] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_50%_34%,#fff7ed_0%,#fff2e3_48%,#ffffff_100%)]">
                 <span className="absolute left-3 top-3 z-10 rounded-full bg-white/82 px-3 py-1 text-xs font-black text-[#9a5633] shadow-sm">
-                  意味は自由
+                  例
                 </span>
                 <Image
                   src={gesture.image}
@@ -38,7 +38,7 @@ export function GestureCards() {
                     {gesture.motion}
                   </p>
                   <h3 className="mt-1 text-2xl font-black text-[#2b211b]">
-                    例 {gesture.label}
+                    例：{gesture.label}
                   </h3>
                 </div>
                 <span
@@ -56,7 +56,7 @@ export function GestureCards() {
         </div>
 
         <p className="mx-auto mt-6 max-w-2xl rounded-full border border-[#efd8c6] bg-white/72 px-4 py-3 text-center text-xs font-bold leading-6 text-[#8a7669] shadow-sm">
-          ※固定メッセージではなく表示例です。合図の文字や意味は、ふたりで自由に設定できる想定です。
+          ※固定メッセージではなく表示例です。合図の文字や意味は、ふたりで自由に変えられます。
         </p>
       </div>
     </section>

@@ -23,25 +23,18 @@ export function ReasonSection() {
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover object-center opacity-[0.86]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,248,239,0.08)_0%,rgba(255,248,239,0.76)_100%)]" />
-          <Image
-            src={imageAssets.dogSleeping}
-            alt="丸まって休む小さな犬"
-            width={1024}
-            height={1024}
-            sizes="(min-width: 1024px) 22vw, 70vw"
-            className="dog-float absolute bottom-2 right-2 w-52 max-w-[62%] sm:w-64"
-          />
-          <div className="absolute left-5 top-5 max-w-[14rem] rounded-lg border border-[#efd8c6] bg-white/84 p-4 text-sm font-bold leading-7 text-[#7a482b] shadow-[0_14px_30px_rgba(109,63,37,0.1)] backdrop-blur">
-            「今日は少し疲れた」も、しぐさだけでそっと伝えられる。
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,248,239,0.12)_0%,rgba(255,248,239,0.78)_100%)]" />
+          <div className="absolute inset-x-5 bottom-5 rounded-lg border border-[#efd8c6] bg-white/86 p-5 text-sm font-bold leading-8 text-[#7a482b] shadow-[0_14px_30px_rgba(109,63,37,0.1)] backdrop-blur">
+            <p>「このしぐさは、気にしてる合図」</p>
+            <p>「ハートなら、思い出したってこと」</p>
           </div>
         </div>
 
         <div>
           <SectionHeader
-            eyebrow="Light signal"
+            eyebrow="ふたりの意味"
             title="言葉にしない、ふたりの合図で届く"
-            description="「これが来たら、帰ってくる合図」「このしぐさは、ちょっと気にしてる合図」「ハートをくわえてきたら、思い出したってこと」。そんなふたりだけの意味を、動物たちのしぐさに込めて送れます。"
+            description="そのしぐさにどんな意味を込めるかは、ふたり次第。言葉にしなくても分かる小さな合図を、動物たちに託せます。"
           />
 
           <div className="grid gap-3 sm:grid-cols-2">

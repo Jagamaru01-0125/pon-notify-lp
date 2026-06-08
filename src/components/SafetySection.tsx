@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   BellOff,
   Link2Off,
@@ -9,7 +8,6 @@ import {
 } from "lucide-react";
 
 import { SectionHeader } from "@/components/SectionHeader";
-import { imageAssets } from "@/constants/assets";
 
 const safetyItems = [
   { label: "最初は親しい1人だけ", icon: UsersRound },
@@ -17,25 +15,28 @@ const safetyItems = [
   { label: "通知オン/オフ", icon: BellOff },
   { label: "ペア解除", icon: UserRoundX },
   { label: "ブロック", icon: ShieldCheck },
-  { label: "位置情報は初期MVPでは使いません", icon: MapPinOff },
+  { label: "位置情報は使いません", icon: MapPinOff },
 ] as const;
 
 export function SafetySection() {
   return (
-    <section className="bg-[#fffdf9] px-5 py-16 sm:px-8 lg:py-24">
-      <div className="section-shell grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
+    <section className="bg-[#fffdf9] px-5 py-14 sm:px-8 lg:py-20">
+      <div className="section-shell">
+        <div className="mx-auto max-w-3xl text-center">
           <SectionHeader
-            eyebrow="Safety"
+            eyebrow="安心設計"
             title="親しい人と、安心して使えるように"
-            description="安心設計は大事にしながら、重く見せすぎない。親しい人へ小さな合図を届けるために必要な範囲だけを検証します。"
+            description="小さな合図だからこそ、届く相手は近い人だけに。気軽さと安心感のバランスを大切にします。"
+            align="center"
           />
+        </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+        <div className="premium-card-strong bg-[#fbfffc] p-4 sm:p-5">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {safetyItems.map(({ label, icon: Icon }) => (
               <div
                 key={label}
-                className="flex min-h-20 items-center gap-3 rounded-lg border border-[#d9e9e3] bg-[#fbfffc] px-4 py-4 shadow-[0_8px_20px_rgba(49,95,82,0.05)]"
+                className="flex min-h-20 items-center gap-3 rounded-lg border border-[#d9e9e3] bg-white/78 px-4 py-4 shadow-[0_8px_20px_rgba(49,95,82,0.04)]"
               >
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dceee8] text-[#315f52] shadow-sm">
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -46,19 +47,8 @@ export function SafetySection() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="premium-card-strong overflow-hidden border-[#d9e9e3] bg-[#f7fffb] p-4 shadow-[0_16px_42px_rgba(49,95,82,0.08)]">
-          <Image
-            src={imageAssets.safetyIcons}
-            alt="チャットなし、通知設定、ペア解除、位置情報なしなど安心設計を表すアイコン"
-            width={1536}
-            height={1024}
-            sizes="(min-width: 1024px) 48vw, 100vw"
-            className="h-auto w-full rounded-lg object-cover"
-          />
-          <p className="mt-4 rounded-lg bg-white/80 px-4 py-3 text-sm font-bold leading-7 text-[#315f52]">
-            初期LPでは、Push通知・Watch本実装・ロック画面ウィジェット本実装・ログイン・課金はまだ扱いません。
+          <p className="mt-4 rounded-lg bg-white/70 px-4 py-3 text-xs font-bold leading-6 text-[#315f52]">
+            ぽん通知は開発準備中です。位置情報共有、チャット、ログイン、課金機能はこのLPでは扱いません。
           </p>
         </div>
       </div>

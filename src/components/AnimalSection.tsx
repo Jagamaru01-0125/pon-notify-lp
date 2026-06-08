@@ -11,9 +11,9 @@ export function AnimalSection() {
       <div className="section-shell grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
         <div>
           <SectionHeader
-            eyebrow="Animals"
+            eyebrow="相棒"
             title="最初は犬。これから増える相棒たち"
-            description="まずは犬から。将来的には猫、うさぎ、くまなど、相手や関係性に合わせて“合図を届ける動物”を選べる体験も検討しています。"
+            description="まずは犬から。走る、しっぽを振る、前足でちょんちょん。関係性に合う相棒を選べる楽しさも、少しずつ広げていきます。"
           />
 
           <div className="grid gap-3 sm:grid-cols-2">
@@ -33,7 +33,7 @@ export function AnimalSection() {
                   <div>
                     <p className="font-black text-[#2b211b]">{animal.name}</p>
                     <p className="text-xs font-bold text-[#9a5633]">
-                      {index === 0 ? "初期MVPの主役" : animal.status}
+                      {animal.status}
                     </p>
                   </div>
                 </div>
@@ -46,7 +46,7 @@ export function AnimalSection() {
               className="mt-1 h-5 w-5 shrink-0 text-[#9a5633]"
               aria-hidden="true"
             />
-            初期MVPは犬を中心に進めます。ただしLPの世界観としては、動物たちがふたりだけの合図を届ける体験として見せます。
+            最初の体験は犬を中心に。猫、うさぎ、くまは、これからの相棒候補として少し控えめに見せています。
           </p>
         </div>
 

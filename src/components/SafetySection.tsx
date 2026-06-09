@@ -1,55 +1,45 @@
-import {
-  BellOff,
-  Link2Off,
-  MapPinOff,
-  ShieldCheck,
-  UserRoundX,
-  UsersRound,
-} from "lucide-react";
-
-import { SectionHeader } from "@/components/SectionHeader";
+import Image from "next/image";
+import { PawIcon } from "@/components/PawIcon";
+import { PawDecor } from "@/components/PawDecor";
 
 const safetyItems = [
-  { label: "最初は親しい1人だけ", icon: UsersRound },
-  { label: "チャットなし", icon: Link2Off },
-  { label: "通知オン/オフ", icon: BellOff },
-  { label: "ペア解除", icon: UserRoundX },
-  { label: "ブロック", icon: ShieldCheck },
-  { label: "位置情報は使いません", icon: MapPinOff },
+  { src: "/assets/safe-person.png", title: "最初は親しい1人だけ", desc: "信頼できる相手とだけ。" },
+  { src: "/assets/safe-nochat.png", title: "チャットなし", desc: "長い会話に追われない設計。" },
+  { src: "/assets/safe-bell.png", title: "通知オン／オフ", desc: "受け取り方は自分で選べる。" },
+  { src: "/assets/safe-unlink.png", title: "ペア解除", desc: "いつでも解除できる。" },
+  { src: "/assets/safe-block.png", title: "ブロック", desc: "しっかり遮断できる。" },
+  { src: "/assets/safe-noloc.png", title: "位置情報は使いません", desc: "初期MVPでは非対応。" },
 ] as const;
 
 export function SafetySection() {
   return (
-    <section className="bg-[#fffdf9] px-5 py-14 sm:px-8 lg:py-20">
-      <div className="section-shell">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeader
-            eyebrow="安心設計"
-            title="親しい人と、安心して使えるように"
-            description="小さな合図だからこそ、届く相手は近い人だけに。気軽さと安心感のバランスを大切にします。"
-            align="center"
-          />
+    <section className="section bg-c">
+      <PawDecor
+        marks={[
+          { size: 36, style: { left: "3%", bottom: "18%", opacity: .09, transform: "rotate(-13deg)" } },
+          { size: 20, style: { right: "4%", top: "20%", opacity: .09, transform: "rotate(12deg)" } },
+        ]}
+      />
+
+      <div className="wrap">
+        <div className="s-head reveal">
+          <span className="eyebrow">
+            <PawIcon size={17} color="#E6854D" className="pw" />SAFE &amp; GENTLE
+          </span>
+          <h2>親しい人と、安心して使えるように。</h2>
+          <p className="lead">大切な相手とだけ、やさしく。最初のMVPでは、安心のためにできることをシンプルに。</p>
         </div>
 
-        <div className="premium-card-strong bg-[#fbfffc] p-4 sm:p-5">
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {safetyItems.map(({ label, icon: Icon }) => (
-              <div
-                key={label}
-                className="flex min-h-20 items-center gap-3 rounded-lg border border-[#d9e9e3] bg-white/78 px-4 py-4 shadow-[0_8px_20px_rgba(49,95,82,0.04)]"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#dceee8] text-[#315f52] shadow-sm">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span className="font-bold leading-7 text-[#33423d]">
-                  {label}
-                </span>
+        <div className="safety-row">
+          {safetyItems.map((item, i) => (
+            <div key={item.title} className="sitem reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+              <div className="ic">
+                <Image src={item.src} alt="" width={74} height={74} />
               </div>
-            ))}
-          </div>
-          <p className="mt-4 rounded-lg bg-white/70 px-4 py-3 text-xs font-bold leading-6 text-[#315f52]">
-            ぽん通知は開発準備中です。位置情報共有、チャット、ログイン、課金機能はこのLPでは扱いません。
-          </p>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

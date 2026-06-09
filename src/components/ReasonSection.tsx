@@ -1,56 +1,65 @@
 import Image from "next/image";
-import { HeartHandshake, MessageCircleOff, PencilLine, TimerReset } from "lucide-react";
-
-import { SectionHeader } from "@/components/SectionHeader";
-import { imageAssets } from "@/constants/assets";
-
-const reasons = [
-  { label: "ふたりだけの意味で使える", icon: HeartHandshake },
-  { label: "文字なしでも伝わる", icon: MessageCircleOff },
-  { label: "短い文字も添えられる", icon: PencilLine },
-  { label: "返信を求めすぎない", icon: TimerReset },
-] as const;
+import { PawIcon } from "@/components/PawIcon";
+import { PawDecor } from "@/components/PawDecor";
 
 export function ReasonSection() {
   return (
-    <section className="px-5 py-16 sm:px-8 lg:py-24">
-      <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-        <div className="premium-card-strong relative min-h-[26rem] overflow-hidden bg-[#fff8ef]">
-          <Image
-            src={imageAssets.roomBackground}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover object-center opacity-[0.86]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,248,239,0.12)_0%,rgba(255,248,239,0.78)_100%)]" />
-          <div className="absolute inset-x-5 bottom-5 rounded-lg border border-[#efd8c6] bg-white/86 p-5 text-sm font-bold leading-8 text-[#7a482b] shadow-[0_14px_30px_rgba(109,63,37,0.1)] backdrop-blur">
-            <p>「このしぐさは、気にしてる合図」</p>
-            <p>「ハートなら、思い出したってこと」</p>
+    <section className="section bg-e">
+      <PawDecor
+        marks={[
+          { size: 36, style: { right: "5%", top: "18%", opacity: .10, transform: "rotate(14deg)" } },
+          { size: 22, style: { right: "12%", bottom: "16%", opacity: .09, transform: "rotate(-8deg)" } },
+        ]}
+      />
+
+      <div className="wrap">
+        <div className="rel">
+          <div className="txt reveal">
+            <span className="eyebrow">
+              <PawIcon size={17} color="#E6854D" className="pw" />YOUR OWN MEANING
+            </span>
+            <h2>言葉にしない、<br />ふたりだけの合図で届く。</h2>
+            <div className="quote-list">
+              <div className="quote">「このしぐさが来たら、帰ってくる合図」</div>
+              <div className="quote">「首をかしげたら、ちょっと気にしてる合図」</div>
+              <div className="quote">「ハートをくわえてきたら、思い出したってこと」</div>
+            </div>
+            <p className="close">そんな小さな意味を、動物たちのしぐさに込めて届けられます。</p>
           </div>
-        </div>
 
-        <div>
-          <SectionHeader
-            eyebrow="ふたりの意味"
-            title="言葉にしない、ふたりの合図で届く"
-            description="そのしぐさにどんな意味を込めるかは、ふたり次第。言葉にしなくても分かる小さな合図を、動物たちに託せます。"
-          />
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {reasons.map(({ label, icon: Icon }) => (
-              <div
-                key={label}
-                className="flex min-h-24 items-center gap-3 rounded-lg border border-[#efd8c6] bg-white/88 px-4 py-4 shadow-[0_8px_22px_rgba(109,63,37,0.05)]"
-              >
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#ffeaf0] text-[#9b4d66] shadow-sm">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <span className="font-bold leading-7 text-[#3a2b24]">
-                  {label}
-                </span>
+          <div className="rel-cards reveal" style={{ transitionDelay: ".1s" }}>
+            <div className="rcard">
+              <div className="ic">
+                <Image src="/assets/safe-person.png" alt="" width={32} height={32} />
               </div>
-            ))}
+              <h4>ふたりだけの意味で使える</h4>
+              <p>同じしぐさでも、意味は自由に決められる。</p>
+            </div>
+            <div className="rcard">
+              <div className="ic">
+                <PawIcon size={28} color="#E6854D" />
+              </div>
+              <h4>文字なしでも伝わる</h4>
+              <p>あえて言葉にしない合図も送れる。</p>
+            </div>
+            <div className="rcard">
+              <div className="ic">
+                <svg viewBox="0 0 24 24" style={{ width: "26px", height: "26px" }} fill="none" stroke="#E6854D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+                </svg>
+              </div>
+              <h4>短い文字も添えられる</h4>
+              <p>必要なときだけ、ひと言を追加。</p>
+            </div>
+            <div className="rcard">
+              <div className="ic">
+                <svg viewBox="0 0 24 24" style={{ width: "26px", height: "26px" }} fill="none" stroke="#E6854D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0" />
+                </svg>
+              </div>
+              <h4>返信を求めすぎない</h4>
+              <p>ただ気持ちだけ、そっと届く。</p>
+            </div>
           </div>
         </div>
       </div>

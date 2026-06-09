@@ -1,63 +1,49 @@
-import Image from "next/image";
+import { PawIcon } from "@/components/PawIcon";
+import { PawDecor } from "@/components/PawDecor";
 
-import { SectionHeader } from "@/components/SectionHeader";
-import { gestures } from "@/constants/gestures";
+const gestures = [
+  { src: "/assets/cta-dog-delivering-letter-wide.png", label: "走ってくる", ex: "帰るよ" },
+  { src: "/assets/dog-wag-tail-standing.png", label: "しっぽを振る", ex: "大丈夫" },
+  { src: "/assets/dog-tap-paw-card.png", label: "前足でちょんちょん", ex: "見て" },
+  { src: "/assets/dog-tilt-head-card.png", label: "首をかしげる", ex: "大丈夫？" },
+  { src: "/assets/dog-carrying-heart.png", label: "ハートをくわえる", ex: "思い出した" },
+  { src: "/assets/dog-sleeping-curled.png", label: "丸まって休む", ex: "今日は疲れた" },
+] as const;
 
 export function GestureCards() {
   return (
-    <section className="bg-[#fffdf9] px-5 py-16 sm:px-8 lg:py-24">
-      <div className="section-shell">
-        <SectionHeader
-          eyebrow="しぐさ"
-          title="合図は、しぐさで届く"
-          description="文字はつけても、つけなくてもOK。「帰るよ」「大丈夫？」みたいな意味も、ふたりで自由に変えられます。"
-          align="center"
-        />
+    <section className="section bg-c">
+      <PawDecor
+        marks={[
+          { size: 40, style: { left: "4%", top: "20%", opacity: .09, transform: "rotate(-13deg)" } },
+          { size: 24, style: { right: "4%", top: "28%", opacity: .10, transform: "rotate(14deg)" } },
+          { size: 16, style: { right: "9%", bottom: "16%", opacity: .08, transform: "rotate(-6deg)" } },
+        ]}
+      />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gestures.map((gesture) => (
-            <article
-              key={gesture.label}
-              className="premium-card group overflow-hidden bg-white/90 p-3"
-            >
-              <div className="relative aspect-[1.08/1] overflow-hidden rounded-lg bg-[radial-gradient(circle_at_50%_34%,#fff7ed_0%,#fff2e3_48%,#ffffff_100%)]">
-                <span className="absolute left-3 top-3 z-10 rounded-full bg-white/82 px-3 py-1 text-xs font-black text-[#9a5633] shadow-sm">
-                  例
-                </span>
-                <Image
-                  src={gesture.image}
-                  alt={`${gesture.motion}犬の合図`}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  className="object-cover object-center transition duration-500 group-hover:scale-[1.035]"
-                />
+      <div className="wrap">
+        <div className="s-head reveal">
+          <span className="eyebrow">
+            <PawIcon size={17} color="#E6854D" className="pw" />GESTURES
+          </span>
+          <h2>合図は、メッセージじゃなくて、しぐさ。</h2>
+          <p className="lead">「帰るよ」「大丈夫？」はただの例。どのしぐさに、どんな意味を込めるかは自由です。</p>
+        </div>
+
+        <div className="gestures">
+          {gestures.map((g, i) => (
+            <div key={g.label} className="gcard reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+              <div className="pic">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={g.src} alt={g.label} />
               </div>
-              <div className="mt-4 flex items-start justify-between gap-3 px-1">
-                <div>
-                  <p className="text-sm font-black text-[#9a5633]">
-                    {gesture.motion}
-                  </p>
-                  <h3 className="mt-1 text-2xl font-black text-[#2b211b]">
-                    例：{gesture.label}
-                  </h3>
-                </div>
-                <span
-                  className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-xl ${gesture.tone}`}
-                  aria-hidden="true"
-                >
-                  {gesture.icon}
-                </span>
-              </div>
-              <p className="px-1 pt-3 text-sm font-medium leading-7 text-[#66564c]">
-                {gesture.description}
-              </p>
-            </article>
+              <h4>{g.label}</h4>
+              <p className="ex">例 <b>{g.ex}</b></p>
+            </div>
           ))}
         </div>
 
-        <p className="mx-auto mt-6 max-w-2xl rounded-full border border-[#efd8c6] bg-white/72 px-4 py-3 text-center text-xs font-bold leading-6 text-[#8a7669] shadow-sm">
-          ※固定メッセージではなく表示例です。合図の文字や意味は、ふたりで自由に変えられます。
-        </p>
+        <p className="gest-note">※ 表示は一例です。合図の文字や意味は、ふたりで自由に設定できます。</p>
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ export function SendSourcesSection() {
             <p>腕からすぐに、ふたりの合図。歩きながらでも、ぽんと。</p>
             <div className="media watch">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/watch-paw-button-tap-hand.png" alt="肉球ボタンをタップする様子" />
+              <img src="/assets/watch-paw.png" alt="Watch肉球ボタン" />
             </div>
           </div>
 
@@ -41,18 +41,19 @@ export function SendSourcesSection() {
             <p>スマホを開かずに、肉球だけ押せる。</p>
             <div className="media phone">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/lockscreen-paw-widget-clean.png" alt="ロック画面の肉球ウィジェット" />
+              <img src="/assets/phone-lock.png" alt="ロック画面ウィジェット" />
             </div>
           </div>
 
           <div className="src reveal" style={{ transitionDelay: ".2s" }}>
-            <span className="sub-flag">補助</span>
-            <span className="badge">設定はこちら</span>
-            <h3>スマホアプリ</h3>
-            <p>相手登録や、合図の意味をカスタマイズ。送るのはWatchとロック画面が中心です。</p>
-            <div className="media phone">
+            <span className="badge">
+              <PawIcon size={13} color="#E6854D" />受け取る側
+            </span>
+            <h3>相手のWatchに<br />しぐさで届く</h3>
+            <p>ウォッチの画面に、かわいいしぐさのアニメーションが届きます。</p>
+            <div className="media recv">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/receive-phone-watch-dog-run.png" alt="スマホとWatchで受け取るイメージ" />
+              <img src="/assets/receive-wave.png" alt="しぐさで届く通知" />
             </div>
           </div>
         </div>

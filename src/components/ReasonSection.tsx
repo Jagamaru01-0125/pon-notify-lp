@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PawIcon } from "@/components/PawIcon";
 import { PawDecor } from "@/components/PawDecor";
 
@@ -30,7 +29,8 @@ export function ReasonSection() {
           <div className="rel-cards reveal" style={{ transitionDelay: ".1s" }}>
             <div className="rcard">
               <div className="ic">
-                <Image src="/assets/safe-person.png" alt="" width={32} height={32} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/safe-person.png" alt="" style={{width:32,height:32,objectFit:"contain"}} />
               </div>
               <h4>ふたりだけの意味で使える</h4>
               <p>同じしぐさでも、意味は自由に決められる。</p>

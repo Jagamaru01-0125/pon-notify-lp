@@ -1,14 +1,13 @@
-import Image from "next/image";
 import { PawIcon } from "@/components/PawIcon";
 import { PawDecor } from "@/components/PawDecor";
 
 const safetyItems = [
   { src: "/assets/safe-person.png", title: "最初は親しい1人だけ", desc: "信頼できる相手とだけ。" },
-  { src: "/assets/safe-nochat.png", title: "チャットなし", desc: "長い会話に追われない設計。" },
-  { src: "/assets/safe-bell.png", title: "通知オン／オフ", desc: "受け取り方は自分で選べる。" },
-  { src: "/assets/safe-unlink.png", title: "ペア解除", desc: "いつでも解除できる。" },
-  { src: "/assets/safe-block.png", title: "ブロック", desc: "しっかり遮断できる。" },
-  { src: "/assets/safe-noloc.png", title: "位置情報は使いません", desc: "初期MVPでは非対応。" },
+  { src: "/assets/safe-nochat.png", title: "チャットなし",         desc: "長い会話に追われない設計。" },
+  { src: "/assets/safe-bell.png",   title: "通知オン／オフ",       desc: "受け取り方は自分で選べる。" },
+  { src: "/assets/safe-unlink.png", title: "ペア解除",             desc: "いつでも解除できる。" },
+  { src: "/assets/safe-block.png",  title: "ブロック",             desc: "しっかり遮断できる。" },
+  { src: "/assets/safe-noloc.png",  title: "位置情報は使いません", desc: "初期MVPでは非対応。" },
 ] as const;
 
 export function SafetySection() {
@@ -22,24 +21,29 @@ export function SafetySection() {
       />
 
       <div className="wrap">
-        <div className="s-head reveal">
-          <span className="eyebrow">
-            <PawIcon size={17} color="#E6854D" className="pw" />SAFE &amp; GENTLE
-          </span>
-          <h2>親しい人と、安心して使えるように。</h2>
-          <p className="lead">大切な相手とだけ、やさしく。最初のMVPでは、安心のためにできることをシンプルに。</p>
-        </div>
+        <div className="safety-split">
+          {/* LEFT: Heading */}
+          <div className="safety-txt reveal">
+            <span className="eyebrow">
+              <PawIcon size={17} color="#E6854D" className="pw" />SAFE &amp; GENTLE
+            </span>
+            <h2>親しい人と、安心して使えるように。</h2>
+            <p className="safety-lead">大切な相手とだけ、やさしく。最初のMVPでは、安心のためにできることをシンプルに。</p>
+          </div>
 
-        <div className="safety-row">
-          {safetyItems.map((item, i) => (
-            <div key={item.title} className="sitem reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
-              <div className="ic">
-                <Image src={item.src} alt="" width={74} height={74} />
+          {/* RIGHT: 3×2 icon grid */}
+          <div className="safety-icons">
+            {safetyItems.map((item, i) => (
+              <div key={item.title} className="sitem reveal" style={{ transitionDelay: `${i * 0.05}s` }}>
+                <div className="ic">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={item.src} alt="" />
+                </div>
+                <h4>{item.title}</h4>
+                <p>{item.desc}</p>
               </div>
-              <h4>{item.title}</h4>
-              <p>{item.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

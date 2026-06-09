@@ -18,10 +18,10 @@ export function SignupSection({ onOpenModal }: { onOpenModal: () => void }) {
           <div className="dogwrap">
             <Image
               className="final-dog"
-              src="/assets/dog-wag-tail-standing.png"
-              alt="しっぽを振る犬"
-              width={180}
-              height={220}
+              src="/assets/an-dog.png"
+              alt="前脚を上げてご挨拶する犬"
+              width={200}
+              height={240}
               style={{ objectFit: "contain" }}
             />
           </div>

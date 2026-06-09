@@ -2,12 +2,12 @@ import { PawIcon } from "@/components/PawIcon";
 import { PawDecor } from "@/components/PawDecor";
 
 const gestures = [
-  { src: "/assets/cta-dog-delivering-letter-wide.png", label: "走ってくる", ex: "帰るよ" },
-  { src: "/assets/dog-wag-tail-standing.png", label: "しっぽを振る", ex: "大丈夫" },
-  { src: "/assets/dog-tap-paw-card.png", label: "前足でちょんちょん", ex: "見て" },
-  { src: "/assets/dog-tilt-head-card.png", label: "首をかしげる", ex: "大丈夫？" },
-  { src: "/assets/dog-carrying-heart.png", label: "ハートをくわえる", ex: "思い出した" },
-  { src: "/assets/dog-sleeping-curled.png", label: "丸まって休む", ex: "今日は疲れた" },
+  { src: "/assets/dog-run-hero.png",  label: "走ってくる",       ex: "帰るよ" },
+  { src: "/assets/g-tail.png",        label: "しっぽを振る",     ex: "大丈夫" },
+  { src: "/assets/g-paw.png",         label: "前足でちょんちょん", ex: "見て" },
+  { src: "/assets/g-tilt.png",        label: "首をかしげる",     ex: "大丈夫？" },
+  { src: "/assets/g-heart.png",       label: "ハートをくわえる", ex: "思い出した" },
+  { src: "/assets/g-curl.png",        label: "丸まって休む",     ex: "今日は疲れた" },
 ] as const;
 
 export function GestureCards() {

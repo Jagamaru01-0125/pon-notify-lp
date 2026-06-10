@@ -19,34 +19,38 @@ export function AnimalSection() {
       />
 
       <div className="wrap">
-        <div className="animals-head reveal">
-          <span className="eyebrow">
-            <PawIcon size={17} color="#E6854D" className="pw" />PARTNERS
-          </span>
-          <h2>最初は犬。これから、相棒は増えていくかも。</h2>
-          <p className="lead">まずは犬から。将来的には猫、うさぎ、くまなど、あなたと相手の関係性に合わせた相棒を選べる体験も検討しています。</p>
-        </div>
-
-        <div className="reveal" style={{ transitionDelay: ".08s" }}>
-          <div className="animals-tag-row">
-            <div className="now-badge">
-              <PawIcon size={13} color="#E6854D" />まずは犬！
-            </div>
+        <div className="animals-split">
+          {/* LEFT: Text */}
+          <div className="animals-txt reveal">
+            <span className="eyebrow">
+              <PawIcon size={17} color="#E6854D" className="pw" />PARTNERS
+            </span>
+            <h2>最初は犬。これから、相棒は増えていくかも。</h2>
+            <p className="animals-lead">まずは犬から。将来的には猫、うさぎ、くまなど、あなたと相手の関係性に合わせた相棒を選べる体験も検討しています。</p>
           </div>
 
-          <div className="animals-grid">
-            {animals.map((a) => (
-              <div key={a.name} className={`an-card${a.lead ? " lead" : ""}`}>
-                <div className="an-pic">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={a.src} alt={a.name} />
-                </div>
-                <div className="an-name-row">
-                  <span className="an-name">{a.name}</span>
-                  <span className="an-status">{a.tag}</span>
-                </div>
+          {/* RIGHT: Badge + Animals */}
+          <div className="animals-right reveal" style={{ transitionDelay: ".08s" }}>
+            <div className="animals-tag-row">
+              <div className="now-badge">
+                <PawIcon size={13} color="#E6854D" />まずは犬！
               </div>
-            ))}
+            </div>
+
+            <div className="animals-row">
+              {animals.map((a) => (
+                <div key={a.name} className={`an-card${a.lead ? " lead" : ""}`}>
+                  <div className="an-pic">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={a.src} alt={a.name} />
+                  </div>
+                  <div className="an-name-row">
+                    <span className="an-name">{a.name}</span>
+                    <span className="an-status">{a.tag}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

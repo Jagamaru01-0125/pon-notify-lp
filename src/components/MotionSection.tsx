@@ -1,84 +1,50 @@
-import Image from "next/image";
-import { ArrowRight, MessageCircleOff, PawPrint } from "lucide-react";
-
-import { PawButton } from "@/components/PawButton";
-import { SectionHeader } from "@/components/SectionHeader";
-import { imageAssets } from "@/constants/assets";
+import { PawIcon } from "@/components/PawIcon";
 
 export function MotionSection() {
   return (
-    <section className="px-5 py-14 sm:px-8 lg:py-20">
-      <div className="section-shell premium-card-strong grid gap-8 overflow-hidden p-5 sm:p-7 lg:grid-cols-[0.78fr_1.22fr] lg:items-center lg:p-9">
-        <div>
-          <SectionHeader
-            eyebrow="届き方"
-            title="届くのは、メッセージじゃなくて、あなたたちだけの合図。"
-            description="動物が走る、しっぽを振る、前足でちょんちょんする。そのしぐさにどんな意味を込めるかは、ふたりで決められます。"
-          />
-          <div className="inline-flex items-center gap-2 rounded-full bg-[#fff0e6] px-4 py-2 text-sm font-bold text-[#7a482b]">
-            <MessageCircleOff className="h-4 w-4" aria-hidden="true" />
-            メッセージではなく、ふたりだけの合図
+    <section className="section bg-d">
+      <div className="paw-decor" aria-hidden="true">
+        <svg className="windline" viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ bottom: "6%", height: "90px", opacity: .38 }}>
+          <path d="M-20 60 C 320 110, 540 16, 800 70 C 1060 116, 1280 24, 1460 74" stroke="#EF9F62" strokeWidth="3" />
+        </svg>
+        <svg width="36" height="36" style={{ right: "6%", top: "18%", opacity: .12, fill: "#E6854D", transform: "rotate(16deg)" }} viewBox="0 0 100 100"><ellipse cx="50" cy="62" rx="26" ry="22"/><ellipse cx="22" cy="40" rx="10" ry="13"/><ellipse cx="40" cy="26" rx="10" ry="13"/><ellipse cx="62" cy="25" rx="10" ry="13"/><ellipse cx="80" cy="38" rx="10" ry="13"/></svg>
+        <svg width="24" height="24" style={{ left: "4%", bottom: "20%", opacity: .11, fill: "#E0A36B", transform: "rotate(-10deg)" }} viewBox="0 0 100 100"><ellipse cx="50" cy="62" rx="26" ry="22"/><ellipse cx="22" cy="40" rx="10" ry="13"/><ellipse cx="40" cy="26" rx="10" ry="13"/><ellipse cx="62" cy="25" rx="10" ry="13"/><ellipse cx="80" cy="38" rx="10" ry="13"/></svg>
+      </div>
+
+      <div className="wrap">
+        <div className="showcase">
+          <div className="txt reveal">
+            <span className="eyebrow">
+              <PawIcon size={17} color="#E6854D" className="pw" />NOT A MESSAGE
+            </span>
+            <h2>届くのは、メッセージじゃなくて、あなたたちだけの合図。</h2>
+            <p>動物が走ってきたり、しっぽを振ったり、前足でちょんちょんしたり。そのしぐさに、どんな意味を込めるかはふたり次第。</p>
+            <p>文字で説明しなくても伝わる、ふたりだけの小さな合図を届けます。もちろん、必要なら短い文字を添えることもできます。</p>
           </div>
-          <div className="mt-5 grid gap-2 text-sm font-bold text-[#7a482b]">
-            {["文字なしでも伝わる", "短い文字は添えられる", "意味はふたりで決められる"].map((label) => (
-              <div key={label} className="flex items-center gap-2">
-                <PawPrint className="h-4 w-4 text-[#f07945]" aria-hidden="true" />
-                {label}
+
+          <div className="flow reveal" style={{ transitionDelay: ".1s" }}>
+            <div className="flow-row">
+              <div className="cell watch">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/watch-paw.png" alt="肉球を押す" />
+                <div className="lbl">肉球を押す</div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="relative min-h-[22rem] overflow-hidden rounded-lg border border-[#efd8c6] bg-[linear-gradient(135deg,#fffaf4_0%,#fff1e5_55%,#fffdf9_100%)] p-5 shadow-[0_16px_42px_rgba(109,63,37,0.08)]">
-          <Image
-            src={imageAssets.motionDivider}
-            alt=""
-            width={1536}
-            height={1024}
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            className="pointer-events-none absolute inset-x-0 top-1/2 h-32 w-full -translate-y-1/2 object-cover opacity-[0.24]"
-          />
-
-          <div className="relative z-10 grid min-h-[20rem] gap-5 sm:grid-cols-[0.72fr_auto_1fr_auto_0.9fr] sm:items-center">
-            <div className="grid place-items-center rounded-lg bg-white/72 p-5 shadow-sm">
-              <PawButton label="ぽん" size="md" />
-              <p className="mt-4 text-sm font-black text-[#7a482b]">肉球を押す</p>
-            </div>
-
-            <ArrowRight
-              className="mx-auto hidden h-7 w-7 rounded-full bg-white p-1 text-[#ff8f68] shadow-sm sm:block"
-              aria-hidden="true"
-            />
-
-            <div className="relative min-h-52 overflow-hidden rounded-lg bg-white/46">
-              <Image
-                src={imageAssets.dogRunning}
-                alt="合図を届けに走る犬"
-                fill
-                sizes="(min-width: 1024px) 28vw, 100vw"
-                className="object-cover object-center"
-              />
-              <p className="absolute left-4 top-4 rounded-full bg-white/86 px-3 py-1 text-xs font-black text-[#7a482b] shadow-sm">
-                動物が走る
-              </p>
-            </div>
-
-            <ArrowRight
-              className="mx-auto hidden h-7 w-7 rounded-full bg-white p-1 text-[#ff8f68] shadow-sm sm:block"
-              aria-hidden="true"
-            />
-
-            <div className="relative min-h-52 overflow-hidden rounded-lg bg-white/70">
-              <Image
-                src={imageAssets.receiveDevices}
-                alt="相手のスマホとApple Watchに犬のしぐさが届く様子"
-                fill
-                sizes="(min-width: 1024px) 22vw, 100vw"
-                className="object-cover object-center"
-              />
-              <p className="absolute bottom-4 left-4 rounded-full bg-white/86 px-3 py-1 text-xs font-black text-[#7a482b] shadow-sm">
-                しぐさで届く
-              </p>
+              <svg className="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+              <div className="cell dog">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/dog-play.png" alt="動物が走る" />
+                <div className="lbl">動物が走る</div>
+              </div>
+              <svg className="ar" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+              <div className="cell recv">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/receive-wave.png" alt="相手に届く" />
+                <div className="lbl">しぐさで届く</div>
+              </div>
             </div>
           </div>
         </div>

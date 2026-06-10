@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PawDecor } from "@/components/PawDecor";
 
 export function SignupSection({ onOpenModal }: { onOpenModal: () => void }) {
@@ -16,19 +15,14 @@ export function SignupSection({ onOpenModal }: { onOpenModal: () => void }) {
       <div className="wrap">
         <div className="final-card reveal">
           <div className="dogwrap">
-            <Image
-              className="final-dog"
-              src="/assets/an-dog.png"
-              alt="前脚を上げてご挨拶する犬"
-              width={200}
-              height={240}
-              style={{ objectFit: "contain" }}
-            />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="final-dog" src="/assets/dog-stand.png" alt="こちらを見つめる相棒" />
           </div>
           <div className="bubble2">僕の肉球、触ってほしいワン。</div>
           <p>ぽん通知は、ただいま開発準備中です。気になった方には、リリース前のお知らせをお届けします。</p>
           <button className="btn btn-primary btn-lg" onClick={onOpenModal}>
-            <Image className="pawicon" src="/assets/paw.png" alt="" width={28} height={28} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="pawicon" src="/assets/paw.png" alt="" />
             肉球を押して、開発通知を受け取る
           </button>
         </div>

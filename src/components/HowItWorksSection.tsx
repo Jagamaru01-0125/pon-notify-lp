@@ -33,8 +33,12 @@ export function HowItWorksSection() {
             <h3>肉球を押す</h3>
             <p>腕時計やロック画面から、ぷにっとワンタップ。</p>
             <div className="vis">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/watch-paw-button-tap-hand.png" alt="肉球ボタンを押す" />
+              <div className="vis-duo">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/watch-paw.png" alt="Watch肉球ボタン" className="vis-sm" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/assets/phone-lock.png" alt="ロック画面ウィジェット" className="vis-lg" />
+              </div>
             </div>
           </div>
 
@@ -44,7 +48,7 @@ export function HowItWorksSection() {
             <p>あなたが選んだ相棒が、合図を届けに行く。</p>
             <div className="vis">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/cta-dog-delivering-letter-wide.png" alt="走り出す犬" />
+              <img src="/assets/dog-run-hero.png" alt="走り出す犬" />
             </div>
           </div>
 
@@ -54,7 +58,7 @@ export function HowItWorksSection() {
             <p>相手のスマホやApple Watchに、動物のしぐさで合図が届く。</p>
             <div className="vis">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/receive-phone-watch-dog-run.png" alt="相手のデバイスに届く" />
+              <img src="/assets/receive-wave.png" alt="相手のデバイスにしぐさで届く" />
             </div>
           </div>
         </div>

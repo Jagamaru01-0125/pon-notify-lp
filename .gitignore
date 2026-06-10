@@ -1,28 +1,18 @@
-# dependencies
+# dependencies (leftover local installs)
 node_modules/
 
-# next.js
-.next/
-out/
+# agent / tooling artifacts
+.playwright-mcp/
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
-.pnpm-debug.*
-.next-dev.*.log
+# local screenshots & scratch images (LP assets live in lp-v2/web/)
+*.png
+*.jpeg
+*.jpg
+!lp-v2/**
 
 # macOS
 .DS_Store
-*.pem
 
 # local env files
 .env*.local
 .env
-
-# vercel
-.vercel/
-
-# typescript / eslint
-*.tsbuildinfo
-.eslintcache

@@ -23,6 +23,37 @@
   }, { threshold: 0.16, rootMargin: "0px 0px -7% 0px" });
   document.querySelectorAll(".rv, .rv-host").forEach(function (el) { io.observe(el); });
 
+  /* ----- hero paw demo ----- */
+  var heroPaw = document.getElementById("hero-paw");
+  var heroNotif = document.getElementById("hero-notif");
+  var heroNotifText = document.getElementById("hero-notif-text");
+  var heroArt = heroPaw ? heroPaw.parentElement : null;
+  if (heroPaw && heroNotif && heroNotifText) {
+    var heroWords = ["帰るよ", "着いた", "大丈夫？", "見て", "すき"];
+    var heroIdx = -1;
+    heroPaw.addEventListener("click", function () {
+      heroIdx = (heroIdx + 1) % heroWords.length;
+      heroNotifText.textContent = "子犬が「" + heroWords[heroIdx] + "」を届けにきました";
+      if (reduced) return;
+      heroNotif.classList.remove("notif-pop");
+      void heroNotif.offsetWidth; /* restart animation */
+      heroNotif.classList.add("notif-pop");
+      var rect = heroPaw.getBoundingClientRect();
+      var host = heroArt.getBoundingClientRect();
+      for (var i = 0; i < 3; i++) {
+        var h = document.createElement("span");
+        h.className = "nade-heart";
+        h.style.left = (rect.left - host.left + rect.width * (0.25 + Math.random() * 0.5)) + "px";
+        h.style.top = (rect.top - host.top - 2) + "px";
+        h.style.setProperty("--hr", (Math.random() * 40 - 20).toFixed(0) + "deg");
+        h.style.animationDelay = (i * 0.1) + "s";
+        h.style.zIndex = "5";
+        heroArt.appendChild(h);
+        setTimeout(function (el) { el.remove(); }.bind(null, h), 1700);
+      }
+    });
+  }
+
   /* ----- 合図パターン selector ----- */
   var SIGNALS = {
     kaeru:  { word: "帰るよ",   gesture: "しっぽを振って、走り出す", img: "web/pup-wag.png",   alt: "しっぽを振って走り出す子犬" },

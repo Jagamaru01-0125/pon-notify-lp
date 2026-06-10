@@ -1,6 +1,11 @@
 # dependencies (leftover local installs)
 node_modules/
 
+# Next.js build / cache (static-only now, no build step)
+.next/
+.next-dev.*
+tsconfig.tsbuildinfo
+
 # agent / tooling artifacts
 .playwright-mcp/
 

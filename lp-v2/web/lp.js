@@ -58,6 +58,11 @@
   var storyGrid = document.getElementById("story-grid");
   if (storyGrid) {
     var storySteps = storyGrid.querySelectorAll(".story-step");
+    /* on mobile the stage is pinned to the top, so the trigger band
+       sits below it; on desktop it is the viewport center */
+    var storyBand = window.matchMedia("(max-width: 860px)").matches
+      ? "-58% 0px -28% 0px"
+      : "-44% 0px -44% 0px";
     var sio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -65,7 +70,7 @@
         e.target.classList.add("active");
         storyGrid.setAttribute("data-scene", e.target.getAttribute("data-step"));
       });
-    }, { rootMargin: "-44% 0px -44% 0px", threshold: 0 });
+    }, { rootMargin: storyBand, threshold: 0 });
     storySteps.forEach(function (s) { sio.observe(s); });
   }
 

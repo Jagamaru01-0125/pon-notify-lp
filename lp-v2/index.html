@@ -8,6 +8,11 @@
 <meta property="og:title" content="ぽん通知 — あなたの気持ちを、小さな動物たちがワンタップで届けます。">
 <meta property="og:description" content="大事な人に、ワンタップで小さな合図を送るアプリ。文章では伝えづらい気持ちを、子犬や小さな動物たちがそっと届けます。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://pon-notify-lp.vercel.app/">
+<meta property="og:image" content="https://pon-notify-lp.vercel.app/web/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FBF5EA">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23DD7E50' d='M12 12.6c2.3 0 4.9 1.7 4.9 4.2 0 1.6-1.2 2.7-2.8 2.7-.8 0-1.4-.3-2.1-.3s-1.3.3-2.1.3c-1.6 0-2.8-1.1-2.8-2.7 0-2.5 2.6-4.2 4.9-4.2Zm-5.2-1.9c.9.3 1.4 1.4 1 2.4-.3 1-1.3 1.6-2.2 1.3-.9-.3-1.4-1.4-1-2.4.3-1 1.3-1.6 2.2-1.3Zm10.4 0c.9-.3 1.9.3 2.2 1.3.3 1-.1 2.1-1 2.4-.9.3-1.9-.3-2.2-1.3-.3-1 .1-2.1 1-2.4ZM9.4 5.4c1 0 1.8 1 1.8 2.2s-.8 2.2-1.8 2.2-1.8-1-1.8-2.2.8-2.2 1.8-2.2Zm5.2 0c1 0 1.8 1 1.8 2.2s-.8 2.2-1.8 2.2-1.8-1-1.8-2.2.8-2.2 1.8-2.2Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +135,7 @@
         <button class="hero-paw-btn float-anim2" id="hero-paw" type="button" aria-label="肉球ボタンを押して、通知のデモを見る">
           <span class="hp-ring" aria-hidden="true"></span>
           <span class="hp-ring hp-ring2" aria-hidden="true"></span>
-          <img src="web/paw-button.webp" alt="" width="560" height="560">
+          <img src="web/paw-pink.webp" alt="" width="560" height="560">
           <span class="hp-hint">ぽんと押してみて</span>
         </button>
       </div>
@@ -198,36 +203,31 @@
       <div class="story-grid rv-host" id="story-grid" data-scene="1">
         <div class="story-stage rv" style="--d:.12s" aria-hidden="true">
           <div class="scene scene-1">
-            <figure class="story-mock"><img src="web/app-screens.webp" alt=""></figure>
+            <img class="scene-phone" src="web/screen-home.webp" alt="">
             <p class="scene-cap">ホーム画面で、えらぶ</p>
           </div>
           <div class="scene scene-2">
             <div class="scene-paw">
               <span class="sp-ring" aria-hidden="true"></span>
               <span class="sp-ring sp-ring2" aria-hidden="true"></span>
-              <img src="web/paw-button.webp" alt="">
+              <img src="web/paw-pink.webp" alt="">
             </div>
             <p class="scene-cap">ぷにっと、ぽん</p>
           </div>
           <div class="scene scene-3">
-            <div class="scene-run">
-              <svg class="run-paw rp1"><use href="#sym-paw"></use></svg>
-              <svg class="run-paw rp2"><use href="#sym-paw"></use></svg>
-              <svg class="run-paw rp3"><use href="#sym-paw"></use></svg>
-              <img src="web/pup-envelope.webp" alt="">
+            <div class="scene-duo">
+              <img class="scene-lock" src="web/screen-lock.webp" alt="">
+              <div class="scene-run">
+                <svg class="run-paw rp1"><use href="#sym-paw"></use></svg>
+                <svg class="run-paw rp2"><use href="#sym-paw"></use></svg>
+                <svg class="run-paw rp3"><use href="#sym-paw"></use></svg>
+                <img src="web/pup-run.webp" alt="">
+              </div>
             </div>
             <p class="scene-cap">合図をくわえて、走る</p>
           </div>
           <div class="scene scene-4">
-            <div class="notif scene-notif">
-              <span class="notif-icon"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg></span>
-              <span class="notif-body">
-                <span class="notif-app">ぽん通知</span>
-                <span class="notif-text">さくらさんから子犬が走ってきました</span>
-              </span>
-              <span class="notif-time">今</span>
-            </div>
-            <img class="scene-wag" src="web/pup-wag.webp" alt="">
+            <img class="scene-phone scene-receive" src="web/screen-receive.webp" alt="">
             <p class="scene-cap">チャット画面は、出てきません</p>
           </div>
         </div>
@@ -474,7 +474,7 @@
         </div>
       </div>
       <figure class="safety-mock rv-host">
-        <div class="story-mock safety-mock-frame rv" style="--d:.1s"><img src="web/app-screens.webp" alt="ぽん通知の設定画面。通知やなでる通知のオン・オフ、ペア解除、ブロックが並ぶ"></div>
+        <img class="safety-phone rv" style="--d:.1s" src="web/screen-settings.webp" alt="ぽん通知の設定画面。通知やなでる通知のオン・オフ、位置情報の共有オフ、チャット機能なし、ペア解除、ブロックが並ぶ">
         <figcaption class="rv" style="--d:.2s">なでる通知のオン・オフも、設定からいつでも。</figcaption>
       </figure>
       <p class="safety-note rv-host"><span class="rv" style="--d:.2s">「つながりすぎない」ことも、やさしさのかたちだと考えています。</span></p>
@@ -504,7 +504,7 @@
       <div class="last-art rv-host" aria-hidden="true">
         <img class="la-envelope rv" style="--d:.3s" src="web/icon-envelope.webp" alt="">
         <img class="la-sleep rv" style="--d:.2s" src="web/pup-sleep.webp" alt="">
-        <img class="la-paw rv" style="--d:.4s" src="web/paw-button.webp" alt="">
+        <img class="la-paw rv" style="--d:.4s" src="web/paw-pink.webp" alt="">
       </div>
     </div>
   </section>

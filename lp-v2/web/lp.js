@@ -60,18 +60,22 @@
     var storySteps = storyGrid.querySelectorAll(".story-step");
     /* on mobile the stage is pinned to the top, so the trigger band
        sits below it; on desktop it is the viewport center */
-    var storyBand = window.matchMedia("(max-width: 860px)").matches
-      ? "-58% 0px -28% 0px"
-      : "-44% 0px -44% 0px";
-    var sio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        storySteps.forEach(function (s) { s.classList.remove("active"); });
-        e.target.classList.add("active");
-        storyGrid.setAttribute("data-scene", e.target.getAttribute("data-step"));
-      });
-    }, { rootMargin: storyBand, threshold: 0 });
-    storySteps.forEach(function (s) { sio.observe(s); });
+    var storyMQ = window.matchMedia("(max-width: 860px)");
+    var sio = null;
+    var buildStoryObserver = function () {
+      if (sio) sio.disconnect();
+      sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          storySteps.forEach(function (s) { s.classList.remove("active"); });
+          e.target.classList.add("active");
+          storyGrid.setAttribute("data-scene", e.target.getAttribute("data-step"));
+        });
+      }, { rootMargin: storyMQ.matches ? "-58% 0px -28% 0px" : "-44% 0px -44% 0px", threshold: 0 });
+      storySteps.forEach(function (s) { sio.observe(s); });
+    };
+    buildStoryObserver();
+    if (storyMQ.addEventListener) storyMQ.addEventListener("change", buildStoryObserver);
   }
 
   /* ----- 合図パターン selector ----- */

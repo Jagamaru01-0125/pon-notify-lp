@@ -54,13 +54,37 @@
     });
   }
 
+  /* ----- 届くまで story: scroll-driven scenes ----- */
+  var storyGrid = document.getElementById("story-grid");
+  if (storyGrid) {
+    var storySteps = storyGrid.querySelectorAll(".story-step");
+    /* on mobile the stage is pinned to the top, so the trigger band
+       sits below it; on desktop it is the viewport center */
+    var storyMQ = window.matchMedia("(max-width: 860px)");
+    var sio = null;
+    var buildStoryObserver = function () {
+      if (sio) sio.disconnect();
+      sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          storySteps.forEach(function (s) { s.classList.remove("active"); });
+          e.target.classList.add("active");
+          storyGrid.setAttribute("data-scene", e.target.getAttribute("data-step"));
+        });
+      }, { rootMargin: storyMQ.matches ? "-58% 0px -28% 0px" : "-44% 0px -44% 0px", threshold: 0 });
+      storySteps.forEach(function (s) { sio.observe(s); });
+    };
+    buildStoryObserver();
+    if (storyMQ.addEventListener) storyMQ.addEventListener("change", buildStoryObserver);
+  }
+
   /* ----- 合図パターン selector ----- */
   var SIGNALS = {
-    kaeru:  { word: "帰るよ",   gesture: "しっぽを振って、走り出す", img: "web/pup-wag.png",   alt: "しっぽを振って走り出す子犬" },
-    tsuita: { word: "着いた",   gesture: "ちょこんと、おすわりして知らせる", img: "web/pup-sit.png",   alt: "ちょこんとおすわりして前足を上げる子犬" },
-    daijobu:{ word: "大丈夫？", gesture: "首をかしげて、そっと見つめる", img: "web/pup-tilt.png",  alt: "首をかしげる子犬" },
-    mite:   { word: "見て",     gesture: "前足で、ちょいちょいと誘う", img: "web/pup-paw.png",   alt: "前足でちょいちょいする子犬" },
-    suki:   { word: "すき",     gesture: "照れたように、ハートを届ける", img: "web/pup-heart.png", alt: "ハートをくわえて届ける子犬" }
+    kaeru:  { word: "帰るよ",   gesture: "しっぽを振って、走り出す", img: "web/pup-wag.webp",   alt: "しっぽを振って走り出す子犬" },
+    tsuita: { word: "着いた",   gesture: "ちょこんと、おすわりして知らせる", img: "web/pup-sit.webp",   alt: "ちょこんとおすわりして前足を上げる子犬" },
+    daijobu:{ word: "大丈夫？", gesture: "首をかしげて、そっと見つめる", img: "web/pup-tilt.webp",  alt: "首をかしげる子犬" },
+    mite:   { word: "見て",     gesture: "前足で、ちょいちょいと誘う", img: "web/pup-paw.webp",   alt: "前足でちょいちょいする子犬" },
+    suki:   { word: "すき",     gesture: "照れたように、ハートを届ける", img: "web/pup-heart.webp", alt: "ハートをくわえて届ける子犬" }
   };
   var order = ["kaeru", "tsuita", "daijobu", "mite", "suki"];
   var stage = document.getElementById("signal-stage");

@@ -8,6 +8,11 @@
 <meta property="og:title" content="ぽん通知 — あなたの気持ちを、小さな動物たちがワンタップで届けます。">
 <meta property="og:description" content="大事な人に、ワンタップで小さな合図を送るアプリ。文章では伝えづらい気持ちを、子犬や小さな動物たちがそっと届けます。">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://pon-notify-lp.vercel.app/">
+<meta property="og:image" content="https://pon-notify-lp.vercel.app/web/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FBF5EA">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23DD7E50' d='M12 12.6c2.3 0 4.9 1.7 4.9 4.2 0 1.6-1.2 2.7-2.8 2.7-.8 0-1.4-.3-2.1-.3s-1.3.3-2.1.3c-1.6 0-2.8-1.1-2.8-2.7 0-2.5 2.6-4.2 4.9-4.2Zm-5.2-1.9c.9.3 1.4 1.4 1 2.4-.3 1-1.3 1.6-2.2 1.3-.9-.3-1.4-1.4-1-2.4.3-1 1.3-1.6 2.2-1.3Zm10.4 0c.9-.3 1.9.3 2.2 1.3.3 1-.1 2.1-1 2.4-.9.3-1.9-.3-2.2-1.3-.3-1 .1-2.1 1-2.4ZM9.4 5.4c1 0 1.8 1 1.8 2.2s-.8 2.2-1.8 2.2-1.8-1-1.8-2.2.8-2.2 1.8-2.2Zm5.2 0c1 0 1.8 1 1.8 2.2s-.8 2.2-1.8 2.2-1.8-1-1.8-2.2.8-2.2 1.8-2.2Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -130,7 +135,7 @@
         <button class="hero-paw-btn float-anim2" id="hero-paw" type="button" aria-label="肉球ボタンを押して、通知のデモを見る">
           <span class="hp-ring" aria-hidden="true"></span>
           <span class="hp-ring hp-ring2" aria-hidden="true"></span>
-          <img src="web/paw-button.png" alt="" width="560" height="560">
+          <img src="web/paw-pink.webp" alt="" width="560" height="560">
           <span class="hp-hint">ぽんと押してみて</span>
         </button>
       </div>
@@ -183,92 +188,85 @@
       </div>
       <p class="empathy-note rv">長い文章ではなく、5文字以内の小さな合図。<br>言葉にしきれない気持ちを、子犬や小さな動物たちが届けます。</p>
     </div>
-    <img class="empathy-deco deco-rabbit" src="web/deco-rabbit.png" alt="" aria-hidden="true">
-    <img class="empathy-deco deco-cat" src="web/deco-cat.png" alt="" aria-hidden="true">
+    <img class="empathy-deco deco-rabbit" src="web/deco-rabbit.webp" alt="" aria-hidden="true">
+    <img class="empathy-deco deco-cat" src="web/deco-cat.webp" alt="" aria-hidden="true">
   </section>
 
-  <!-- 3. 使い方 -->
-  <section class="band howto" data-screen-label="03 使い方">
+  <!-- 3. 届くまで(スクロールストーリー) -->
+  <section class="band story" data-screen-label="03 届くまで" id="story">
     <div class="wrap">
       <div class="sec-head rv-host">
         <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>HOW IT WORKS</p>
         <h2 class="rv" style="--d:.08s">合図を選んで、肉球をぽん。</h2>
-        <p class="lede rv" style="--d:.14s">むずかしい操作はありません。選んで、押すだけ。<br>あとは小さな動物が、相手のもとへ走ってくれます。</p>
+        <p class="lede rv" style="--d:.14s">むずかしい操作はありません。選んで、押すだけ。<br>あとは子犬が、あなたの気持ちを届けてくれます。</p>
       </div>
-      <div class="steps rv-host">
-        <div class="step rv">
-          <span class="step-no">1</span>
-          <h3>合図を選ぶ</h3>
-          <p>ホーム画面で、5種類の合図から送りたいものを選びます。</p>
-          <div class="step-stage">
-            <div class="mini-chips" aria-hidden="true">
-              <span class="mini-chip sel">帰るよ<svg class="pawg"><use href="#sym-paw"></use></svg></span>
-              <span class="mini-chip">着いた<svg class="pawg"><use href="#sym-paw"></use></svg></span>
-              <span class="mini-chip">大丈夫？<svg class="pawg"><use href="#sym-paw"></use></svg></span>
+      <div class="story-grid rv-host" id="story-grid" data-scene="1">
+        <div class="story-stage rv" style="--d:.12s" aria-hidden="true">
+          <div class="scene scene-1">
+            <img class="scene-phone" src="web/screen-home.webp" alt="">
+            <p class="scene-cap">ホーム画面で、えらぶ</p>
+          </div>
+          <div class="scene scene-2">
+            <div class="scene-paw">
+              <span class="sp-ring" aria-hidden="true"></span>
+              <span class="sp-ring sp-ring2" aria-hidden="true"></span>
+              <img src="web/paw-pink.webp" alt="">
+            </div>
+            <p class="scene-cap">ぷにっと、ぽん</p>
+          </div>
+          <div class="scene scene-3">
+            <div class="scene-duo">
+              <img class="scene-lock" src="web/screen-lock.webp" alt="">
+              <div class="scene-run">
+                <svg class="run-paw rp1"><use href="#sym-paw"></use></svg>
+                <svg class="run-paw rp2"><use href="#sym-paw"></use></svg>
+                <svg class="run-paw rp3"><use href="#sym-paw"></use></svg>
+                <img src="web/pup-run.webp" alt="">
+              </div>
+            </div>
+            <p class="scene-cap">合図をくわえて、走る</p>
+          </div>
+          <div class="scene scene-4">
+            <img class="scene-phone scene-receive" src="web/screen-receive.webp" alt="">
+            <p class="scene-cap">チャット画面は、出てきません</p>
+          </div>
+        </div>
+        <div class="story-steps">
+          <div class="story-step active rv" data-step="1">
+            <span class="step-no">1</span>
+            <div>
+              <h3>合図を選ぶ</h3>
+              <p>ホーム画面で、5種類の合図から送りたいものを選びます。送れるのは5文字以内の小さな合図だけ。</p>
             </div>
           </div>
-          <span class="step-arrow" aria-hidden="true"><svg width="24" height="24"><use href="#sym-arrow"></use></svg></span>
-        </div>
-        <div class="step rv" style="--d:.18s">
-          <span class="step-no">2</span>
-          <h3>肉球を押す</h3>
-          <p>大きな肉球ボタンを、ぽん。それだけで送信は完了です。</p>
-          <div class="step-stage">
-            <div class="step-paw">
-              <img src="web/paw-button.png" alt="肉球ボタンを押す" width="560" height="560">
-              <span class="paw-ring" aria-hidden="true"></span>
+          <div class="story-step rv" data-step="2" style="--d:.08s">
+            <span class="step-no">2</span>
+            <div>
+              <h3>肉球を、ぽん</h3>
+              <p>大きな肉球ボタンを、ぷにっとひと押し。それだけで送信は完了です。</p>
             </div>
           </div>
-          <span class="step-arrow" aria-hidden="true"><svg width="24" height="24"><use href="#sym-arrow"></use></svg></span>
-        </div>
-        <div class="step rv" style="--d:.36s">
-          <span class="step-no">3</span>
-          <h3>子犬が届ける</h3>
-          <p>小さな動物が、あなたの合図をくわえて相手に向かって走り出します。</p>
-          <div class="step-stage">
-            <img class="step-run" src="web/pup-envelope.png" alt="封筒をくわえて走る子犬" width="720" height="738">
+          <div class="story-step rv" data-step="3" style="--d:.16s">
+            <span class="step-no">3</span>
+            <div>
+              <h3>子犬が走って届ける</h3>
+              <p>あなたの合図をくわえて、子犬が相手のもとへ走り出します。相手のロック画面に、そっとお知らせが届きます。</p>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="steps-result rv-host">
-        <div class="notif rv" style="--d:.5s">
-          <span class="notif-icon"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg></span>
-          <span class="notif-body">
-            <span class="notif-app">ぽん通知</span>
-            <span class="notif-text">さくらさんから子犬が走ってきました</span>
-          </span>
-          <span class="notif-time">今</span>
+          <div class="story-step rv" data-step="4" style="--d:.24s">
+            <span class="step-no">4</span>
+            <div>
+              <h3>ひらくと、しぐさで伝わる</h3>
+              <p>通知をひらくと、画面のなかを子犬が走ってきて、選んだ合図をジェスチャーで届けます。チャット画面は出てきません。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. 4画面モック -->
-  <section class="screens" data-screen-label="04 画面モック">
-    <div class="wrap">
-      <div class="sec-head rv-host">
-        <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>SCREENS</p>
-        <h2 class="rv" style="--d:.08s">ぽん通知でできること。</h2>
-        <p class="lede rv" style="--d:.14s">送るのも、受け取るのも、設定も。ぜんぶこの4画面だけ。<br>覚えることが少ないのも、やさしさのひとつです。</p>
-      </div>
-      <div class="screens-shot rv-host">
-        <figure class="screens-frame rv">
-          <img src="web/app-screens.png" alt="ぽん通知の4つの画面。ホーム画面、ロック画面通知、受信ジェスチャー画面、設定画面" width="1672" height="941">
-        </figure>
-        <p class="screens-swipe-hint" aria-hidden="true">← スワイプで4画面を見る →</p>
-        <ul class="screens-labels" role="list">
-          <li class="mock-label rv" style="--d:.1s" data-no="1">ホーム画面</li>
-          <li class="mock-label rv" style="--d:.18s" data-no="2">ロック画面通知</li>
-          <li class="mock-label rv" style="--d:.26s" data-no="3">受信ジェスチャー画面</li>
-          <li class="mock-label rv" style="--d:.34s" data-no="4">設定画面</li>
-        </ul>
-      </div>
-      <p class="mocks-note rv-host"><span class="rv" style="--d:.2s">画面は開発中のイメージです。リリース時には変わることがあります。</span></p>
-    </div>
-  </section>
-
-  <!-- 5. 合図パターン -->
-  <section class="band sig-section" data-screen-label="05 合図パターン">
+  <!-- 4. 合図パターン -->
+  <section class="sig-section" data-screen-label="04 合図パターン">
     <div class="wrap">
       <div class="sec-head rv-host">
         <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>SIGNALS</p>
@@ -299,7 +297,7 @@
           </button>
         </div>
         <div class="signal-stage rv" style="--d:.16s" id="signal-stage" aria-live="polite">
-          <img id="stage-img" class="stage-img" src="web/pup-wag.png" alt="しっぽを振って走り出す子犬" width="640" height="480">
+          <img id="stage-img" class="stage-img" src="web/pup-wag.webp" alt="しっぽを振って走り出す子犬" width="640" height="480">
           <p class="stage-word" id="stage-word">「帰るよ」</p>
           <p class="stage-gesture" id="stage-gesture">しっぽを振って、走り出す</p>
         </div>
@@ -308,61 +306,8 @@
     </div>
   </section>
 
-  <!-- 6. 届く体験 -->
-  <section class="deliver" data-screen-label="06 届く体験">
-    <div class="paw-texture" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="sec-head rv-host">
-        <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>DELIVERY</p>
-        <h2 class="rv" style="--d:.08s">通知を開くと、子犬が走ってきます。</h2>
-        <p class="lede rv" style="--d:.14s">届くのは、ただの文字ではありません。<br>あなたが選んだ小さな合図を、子犬が走って届けます。</p>
-      </div>
-      <div class="deliver-grid rv-host">
-        <div class="deliver-flow">
-          <div class="flow-card rv">
-            <span class="flow-no">1</span>
-            <div>
-              <h4>通知が届く</h4>
-              <p>相手のロック画面に、小さなお知らせがそっと現れます。</p>
-              <span class="flow-quote">さくらさんから子犬が走ってきました</span>
-            </div>
-          </div>
-          <div class="flow-card rv" style="--d:.14s">
-            <span class="flow-no">2</span>
-            <div>
-              <h4>そっと開く</h4>
-              <p>通知にふれると、ぽん通知がひらきます。チャット画面は出てきません。</p>
-            </div>
-          </div>
-          <div class="flow-card rv" style="--d:.28s">
-            <span class="flow-no">3</span>
-            <div>
-              <h4>子犬が合図を届ける</h4>
-              <p>画面のなかを子犬が走ってきて、あなたの選んだ合図を届けます。</p>
-              <span class="flow-quote">さくらさんの子犬が、合図を届けにきました</span>
-            </div>
-          </div>
-        </div>
-        <div class="deliver-art rv" style="--d:.2s">
-          <img class="deliver-img" src="web/pup-run-golden.jpg" alt="光の足あとを残しながら、こちらに走ってくる子犬" width="900" height="900">
-          <div class="deliver-notif float-anim">
-            <div class="notif">
-              <span class="notif-icon"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg></span>
-              <span class="notif-body">
-                <span class="notif-app">ぽん通知</span>
-                <span class="notif-text">さくらさんから子犬が走ってきました</span>
-              </span>
-              <span class="notif-time">今</span>
-            </div>
-          </div>
-          <img class="deliver-envelope" src="web/pup-envelope.png" alt="封筒をくわえて走る子犬" width="720" height="738">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. なでる -->
-  <section class="band nade" data-screen-label="07 なでる">
+  <!-- 5. なでる -->
+  <section class="band nade" data-screen-label="05 なでる">
     <div class="wrap">
       <div class="sec-head rv-host">
         <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>NADERU</p>
@@ -370,7 +315,7 @@
       </div>
       <div class="nade-grid rv-host">
         <div class="nade-art rv">
-          <img src="web/phone-pet.png" alt="スマホ画面のなかの子犬を、指でやさしくなでている" width="640" height="960">
+          <img src="web/phone-pet.webp" alt="スマホ画面のなかの子犬を、指でやさしくなでている" width="640" height="960">
         </div>
         <div class="nade-copy">
           <p class="rv" style="--d:.1s">受け取ったら、子犬をなでて返す。<br>送った人には「あなたの子犬が、なでてもらいました」と小さなお知らせが届きます。返事の言葉を考えなくても、届いたことがやさしく伝わります。</p>
@@ -402,8 +347,8 @@
     </div>
   </section>
 
-  <!-- 8. ロック画面・ウォッチ -->
-  <section class="watch" data-screen-label="08 ロック画面とウォッチ">
+  <!-- 6. ロック画面・ウォッチ -->
+  <section class="watch" data-screen-label="06 ロック画面とウォッチ">
     <div class="wrap">
       <div class="sec-head rv-host">
         <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>WIDGET &amp; WATCH</p>
@@ -420,7 +365,7 @@
             <div><h4>ロック画面ウィジェット</h4><p>画面を開いたその場所に、肉球ボタンを置いておけます。</p></div>
           </div>
           <div class="wpoint rv" style="--d:.2s">
-            <img src="web/watch-paw.png" alt="肉球ボタンが表示されたウォッチ">
+            <img src="web/watch-paw.webp" alt="肉球ボタンが表示されたウォッチ">
             <div><h4>Apple Watch</h4><p>手首の肉球をぽん。歩きながらでも、合図を送れます。</p></div>
           </div>
           <div class="wpoint rv" style="--d:.3s">
@@ -432,8 +377,8 @@
     </div>
   </section>
 
-  <!-- 9. お届け履歴 -->
-  <section class="band history" data-screen-label="09 お届け履歴">
+  <!-- 7. お届け履歴 -->
+  <section class="band history" data-screen-label="07 お届け履歴">
     <div class="wrap">
       <div class="history-grid rv-host">
         <div class="history-copy">
@@ -477,8 +422,8 @@
     </div>
   </section>
 
-  <!-- 10. 安心設計 -->
-  <section class="safety" data-screen-label="10 安心設計">
+  <!-- 8. 安心設計 -->
+  <section class="safety" data-screen-label="08 安心設計">
     <div class="paw-texture" aria-hidden="true"></div>
     <div class="wrap">
       <div class="sec-head rv-host">
@@ -488,32 +433,32 @@
       </div>
       <div class="safety-grid rv-host">
         <div class="safety-card rv">
-          <img src="web/icon-one.png" alt="">
+          <img src="web/icon-one.webp" alt="">
           <h4>相手はまず1人だけ</h4>
           <p>大事な人と、1対1からはじまります。</p>
         </div>
         <div class="safety-card rv" style="--d:.07s">
-          <img src="web/icon-noloc.png" alt="">
+          <img src="web/icon-noloc.webp" alt="">
           <h4>位置情報なし</h4>
           <p>居場所は送られません。見守りアプリではありません。</p>
         </div>
         <div class="safety-card rv" style="--d:.14s">
-          <img src="web/icon-nochat.png" alt="">
+          <img src="web/icon-nochat.webp" alt="">
           <h4>チャットなし</h4>
           <p>会話は始まりません。返事の義務もありません。</p>
         </div>
         <div class="safety-card rv" style="--d:.21s">
-          <img src="web/icon-bell.png" alt="">
+          <img src="web/icon-bell.webp" alt="">
           <h4>なでる通知はオフ可能</h4>
           <p>お知らせの量は、自分で選べます。</p>
         </div>
         <div class="safety-card rv" style="--d:.28s">
-          <img src="web/icon-unpair.png" alt="">
+          <img src="web/icon-unpair.webp" alt="">
           <h4>ペア解除</h4>
           <p>つながりは、いつでも解除できます。</p>
         </div>
         <div class="safety-card rv" style="--d:.35s">
-          <img src="web/icon-block.png" alt="">
+          <img src="web/icon-block.webp" alt="">
           <h4>ブロック</h4>
           <p>安心できる距離を、いつでも保てます。</p>
         </div>
@@ -528,12 +473,16 @@
           <p>届くのは5文字以内の合図。それ以上は送れません。</p>
         </div>
       </div>
+      <figure class="safety-mock rv-host">
+        <img class="safety-phone rv" style="--d:.1s" src="web/screen-settings.webp" alt="ぽん通知の設定画面。通知やなでる通知のオン・オフ、位置情報の共有オフ、チャット機能なし、ペア解除、ブロックが並ぶ">
+        <figcaption class="rv" style="--d:.2s">なでる通知のオン・オフも、設定からいつでも。</figcaption>
+      </figure>
       <p class="safety-note rv-host"><span class="rv" style="--d:.2s">「つながりすぎない」ことも、やさしさのかたちだと考えています。</span></p>
     </div>
   </section>
 
-  <!-- 11. 最後のCTA -->
-  <section class="last-cta" id="register" data-screen-label="11 最終CTA">
+  <!-- 9. 最後のCTA -->
+  <section class="last-cta" id="register" data-screen-label="09 最終CTA">
     <div class="wrap">
       <div class="last-cta-inner rv-host">
         <p class="kicker rv"><svg class="pawg" aria-hidden="true"><use href="#sym-paw"></use></svg>PRE-REGISTER</p>
@@ -553,9 +502,9 @@
         <p class="cta-note rv" style="--d:.3s">登録は無料です。リリース時にお知らせします。</p>
       </div>
       <div class="last-art rv-host" aria-hidden="true">
-        <img class="la-envelope rv" style="--d:.3s" src="web/icon-envelope.png" alt="">
-        <img class="la-sleep rv" style="--d:.2s" src="web/pup-sleep.png" alt="">
-        <img class="la-paw rv" style="--d:.4s" src="web/paw-button.png" alt="">
+        <img class="la-envelope rv" style="--d:.3s" src="web/icon-envelope.webp" alt="">
+        <img class="la-sleep rv" style="--d:.2s" src="web/pup-sleep.webp" alt="">
+        <img class="la-paw rv" style="--d:.4s" src="web/paw-pink.webp" alt="">
       </div>
     </div>
   </section>

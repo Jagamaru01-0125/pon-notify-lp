@@ -757,3 +757,9 @@
 @media (max-width: 720px) {
   #story .scene.scene-1 .story-home-phone { width: min(46vw, 17vh, 9.6rem); }
 }
+
+/* commander C5: readable minimum for mock micro-text on mobile */
+@media (max-width: 720px) {
+  .story-home-phone .tabbar > span { font-size: 7px; }
+  .story-home-phone .home-send p { font-size: 8px; }
+}

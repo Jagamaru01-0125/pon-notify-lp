@@ -23,6 +23,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+.nb { display: inline-block; }
 
 body {
   font-family: var(--font-body);
@@ -888,12 +889,6 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 }
 .site-foot .brand { font-size: 16px; }
 .site-foot .brand .pawg { width: 18px; height: 18px; }
-.foot-nav { display: flex; gap: 18px; flex-wrap: wrap; }
-.foot-nav a {
-  color: var(--ink2); text-decoration: none;
-  transition: color 0.25s ease;
-}
-.foot-nav a:hover { color: var(--paw2); text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 960px) {

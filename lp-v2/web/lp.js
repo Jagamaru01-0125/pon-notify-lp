@@ -33,7 +33,13 @@
     var heroIdx = -1;
     heroPaw.addEventListener("click", function () {
       heroIdx = (heroIdx + 1) % heroWords.length;
-      heroNotifText.textContent = "子犬が「" + heroWords[heroIdx] + "」を届けにきました";
+      heroNotifText.textContent = "";
+      ["子犬が「" + heroWords[heroIdx] + "」を", "届けにきました"].forEach(function (part) {
+        var seg = document.createElement("span");
+        seg.className = "nb";
+        seg.textContent = part;
+        heroNotifText.appendChild(seg);
+      });
       if (reduced) return;
       heroNotif.classList.remove("notif-pop");
       void heroNotif.offsetWidth; /* restart animation */

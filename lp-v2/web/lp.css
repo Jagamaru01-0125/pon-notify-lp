@@ -854,6 +854,15 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 .reg-form input::placeholder { color: var(--mut); }
 .reg-form input:focus { border-color: var(--paw2); box-shadow: 0 0 0 4px rgba(238, 156, 116, 0.18); }
 .reg-form .btn-main { padding: 16px 28px; font-size: 15.5px; flex-shrink: 0; }
+.reg-form .btn-main:disabled { opacity: 0.6; cursor: default; }
+.reg-error {
+  display: none;
+  margin: 14px auto 0;
+  max-width: 480px;
+  font-size: 13.5px;
+  color: var(--paw2);
+}
+.reg-error.show { display: block; }
 .reg-done {
   display: none;
   margin: 34px auto 0;

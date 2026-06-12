@@ -166,7 +166,7 @@
     });
   }
 
-  /* ----- 事前登録フォーム (demo) ----- */
+  /* ----- 事前登録フォーム (Formspark) ----- */
   document.querySelectorAll(".reg-form").forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -175,9 +175,26 @@
         input.focus();
         return;
       }
+      if (form.classList.contains("sending")) return;
+      var btn = form.querySelector("button[type='submit']");
       var done = form.parentElement.querySelector(".reg-done");
-      form.style.display = "none";
-      if (done) done.classList.add("show");
+      var err = form.parentElement.querySelector(".reg-error");
+      form.classList.add("sending");
+      if (btn) btn.disabled = true;
+      if (err) err.classList.remove("show");
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ email: input.value })
+      }).then(function (res) {
+        if (!res.ok) throw new Error("submit failed: " + res.status);
+        form.style.display = "none";
+        if (done) done.classList.add("show");
+      }).catch(function () {
+        form.classList.remove("sending");
+        if (btn) btn.disabled = false;
+        if (err) err.classList.add("show");
+      });
     });
   });
   /* ----- Story home pon demo ----- */

@@ -960,3 +960,89 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
   .story-stage { height: min(50vh, 360px); }
   .last-art { gap: 16px; }
 }
+/* C4 subtle quality refinements */
+.kicker {
+  position: relative;
+}
+
+.kicker::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: auto;
+  bottom: -0.28rem;
+  width: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(221, 126, 80, 0.45);
+  transition: width 0.6s ease 0.3s;
+}
+
+.in .kicker::after {
+  width: 100%;
+}
+
+.btn-nade {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-nade:active {
+  transform: scale(0.94);
+  box-shadow: 0 6px 14px rgba(122, 82, 44, 0.16);
+}
+
+@media (hover: hover) {
+  .btn-nade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(122, 82, 44, 0.2);
+  }
+
+  .moment,
+  .wpoint,
+  .safety-card,
+  .history-card {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .moment:hover,
+  .wpoint:hover,
+  .safety-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(221, 126, 80, 0.36);
+    box-shadow: 0 18px 36px rgba(122, 82, 44, 0.16);
+  }
+
+  .history-card:hover {
+    transform: rotate(-0.3deg) translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kicker::after,
+  .btn-nade,
+  .moment,
+  .wpoint,
+  .safety-card,
+  .history-card {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .btn-nade:hover,
+  .btn-nade:active,
+  .moment:hover,
+  .wpoint:hover,
+  .safety-card:hover,
+  .history-card:hover {
+    transform: none !important;
+  }
+
+  .in .kicker::after {
+    width: 100%;
+  }
+}

@@ -174,4 +174,172 @@
       if (done) done.classList.add("show");
     });
   });
+  /* ----- Story home pon demo ----- */
+  function initStoryHomePonDemo() {
+    var home = document.querySelector("#story-grid .scene-1 .scr-home");
+    var paw = document.getElementById("mock-paw");
+    var cap = document.getElementById("mock-send-cap");
+
+    if (!home || !paw || !cap) {
+      return;
+    }
+
+    var chips = Array.prototype.slice.call(home.querySelectorAll(".home-sig"));
+    var send = home.querySelector(".home-send") || paw.parentNode;
+    var defaultCap = cap.textContent;
+    var capTimer = 0;
+
+    function cleanSignalName(chip) {
+      var node = chip.querySelector("[data-signal-label], .home-sig-label, .home-sig-name, .home-sig-text, strong, b");
+      var label = chip.getAttribute("data-signal") || chip.getAttribute("data-label") || "";
+
+      if (!label && node) {
+        label = node.textContent;
+      }
+
+      if (!label) {
+        label = chip.textContent;
+      }
+
+      label = (label || "合図").replace(/\s+/g, " ").trim();
+
+      var quoted = label.match(/「([^」]+)」/);
+      if (quoted) {
+        return quoted[1];
+      }
+
+      label = label.replace(/^例[:：]?\s*/, "").replace(/[「」]/g, "").trim();
+
+      return label || "合図";
+    }
+
+    function selectChip(chip) {
+      for (var i = 0; i < chips.length; i += 1) {
+        chips[i].classList.remove("sel");
+      }
+
+      chip.classList.add("sel");
+    }
+
+    function getPawCenter() {
+      var pawRect = paw.getBoundingClientRect();
+      var sendRect = send.getBoundingClientRect();
+
+      return {
+        x: pawRect.left - sendRect.left + pawRect.width / 2,
+        y: pawRect.top - sendRect.top + pawRect.height / 2,
+        size: Math.max(pawRect.width, pawRect.height)
+      };
+    }
+
+    function removeNode(node) {
+      if (node && node.parentNode) {
+        node.parentNode.removeChild(node);
+      }
+    }
+
+    function isReducedMotion() {
+      if (typeof reduced !== "undefined") {
+        if (typeof reduced === "boolean") {
+          return reduced;
+        }
+
+        if (typeof reduced.matches === "boolean") {
+          return reduced.matches;
+        }
+
+        return !!reduced;
+      }
+
+      return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+
+    function addRing() {
+      var center = getPawCenter();
+      var ring = document.createElement("span");
+
+      ring.className = "home-paw-ring";
+      ring.setAttribute("aria-hidden", "true");
+      ring.style.left = center.x + "px";
+      ring.style.top = center.y + "px";
+      ring.style.width = center.size + 18 + "px";
+      ring.style.height = center.size + 18 + "px";
+      send.appendChild(ring);
+
+      window.setTimeout(function () {
+        removeNode(ring);
+      }, 900);
+    }
+
+    function addHeart(index) {
+      var center = getPawCenter();
+      var heart = document.createElement("span");
+      var offset = index === 0 ? -18 : 20;
+
+      heart.className = "nade-heart home-paw-heart home-paw-heart-" + (index + 1);
+      heart.setAttribute("aria-hidden", "true");
+      heart.textContent = index === 0 ? "♡" : "♥";
+      heart.style.left = center.x + offset + "px";
+      heart.style.top = center.y - 6 + "px";
+      heart.style.animationDelay = index * 0.08 + "s";
+      send.appendChild(heart);
+
+      window.setTimeout(function () {
+        removeNode(heart);
+      }, 1700);
+    }
+
+    function playPawMotion() {
+      paw.classList.remove("is-pon");
+      void paw.offsetWidth;
+      paw.classList.add("is-pon");
+
+      window.setTimeout(function () {
+        paw.classList.remove("is-pon");
+      }, 260);
+    }
+
+    function sendSignal(event) {
+      var selected = home.querySelector(".home-sig.sel") || chips[0];
+      var signalName = selected ? cleanSignalName(selected) : "合図";
+
+      if (event) {
+        event.preventDefault();
+      }
+
+      cap.textContent = "「" + signalName + "」を送りました";
+      window.clearTimeout(capTimer);
+      capTimer = window.setTimeout(function () {
+        cap.textContent = defaultCap;
+      }, 1800);
+
+      if (isReducedMotion()) {
+        return;
+      }
+
+      addRing();
+      addHeart(0);
+      addHeart(1);
+    }
+
+    for (var i = 0; i < chips.length; i += 1) {
+      chips[i].addEventListener("click", function (event) {
+        event.preventDefault();
+        selectChip(this);
+      });
+    }
+
+    /* instant squish on press; the actual send runs on click so that
+       programmatic and assistive activations also work */
+    paw.addEventListener("pointerdown", function () {
+      if (!isReducedMotion()) playPawMotion();
+    });
+    paw.addEventListener("click", sendSignal);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initStoryHomePonDemo);
+  } else {
+    initStoryHomePonDemo();
+  }
 })();

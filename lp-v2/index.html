@@ -18,8 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="web/lp.css">
-<link rel="stylesheet" href="web/mocks.css">
+<link rel="stylesheet" href="web/lp.css?v=20260612">
+<link rel="stylesheet" href="web/mocks.css?v=20260612">
 </head>
 <body>
 
@@ -203,7 +203,52 @@
       <div class="story-grid rv-host" id="story-grid" data-scene="1">
         <div class="story-stage rv" style="--d:.12s" aria-hidden="true">
           <div class="scene scene-1">
-            <img class="scene-phone" src="web/screen-home.webp" alt="">
+              <div class="scene-phone phone story-home-phone" aria-label="ぽん通知のホーム画面モック">
+                <div class="scr scr-home">
+                  <div class="statusbar">
+                    <span>9:41</span>
+                    <span aria-hidden="true">●●●</span>
+                  </div>
+
+                  <div class="home-pair">
+                    <img src="web/pup-wag.webp" alt="" class="home-pair-avatar">
+                    <div>
+                      <p class="home-pair-name">さくら</p>
+                      <p class="home-pair-note">ペアの相手</p>
+                    </div>
+                  </div>
+
+                  <div class="home-sigs">
+                    <button class="home-sig sel" type="button" tabindex="-1">帰るよ</button>
+                    <button class="home-sig" type="button" tabindex="-1">着いた</button>
+                    <button class="home-sig" type="button" tabindex="-1">大丈夫？</button>
+                    <button class="home-sig" type="button" tabindex="-1">見て</button>
+                    <button class="home-sig" type="button" tabindex="-1">すき</button>
+                  </div>
+
+                  <div class="home-send">
+                    <button type="button" tabindex="-1" id="mock-paw">
+                      <img src="web/paw-pink.webp" alt="">
+                    </button>
+                    <p id="mock-send-cap">えらんで、ぽん</p>
+                  </div>
+
+                  <div class="tabbar">
+                    <span class="active">
+                      <svg aria-hidden="true"><use href="#sym-paw"></use></svg>
+                      <span>送る</span>
+                    </span>
+                    <span>
+                      <svg aria-hidden="true"><use href="#sym-clock"></use></svg>
+                      <span>お届け履歴</span>
+                    </span>
+                    <span>
+                      <svg aria-hidden="true"><use href="#sym-person"></use></svg>
+                      <span>マイページ</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
             <p class="scene-cap">ホーム画面で、えらぶ</p>
           </div>
           <div class="scene scene-2">
@@ -523,6 +568,6 @@
   </div>
 </footer>
 
-<script src="web/lp.js"></script>
+<script src="web/lp.js?v=20260612"></script>
 </body>
 </html>

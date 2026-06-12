@@ -37,6 +37,7 @@ body {
 
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; }
+main { overflow-x: clip; }
 
 /* film grain — subtle depth across the whole page */
 body::after {
@@ -83,6 +84,54 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; letter-spacing: 0.
 
 section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 .band { background: var(--bg2); }
+.band::before, .band::after {
+  content: ""; position: absolute; left: -2%; right: -2%;
+  height: clamp(22px, 4vw, 48px);
+  background: var(--bg2);
+  pointer-events: none;
+}
+.band::before { top: 0; transform: translateY(-99%); border-radius: 100% 100% 0 0; }
+.band::after { bottom: 0; transform: translateY(99%); border-radius: 0 0 100% 100%; }
+
+.empathy {
+  background:
+    radial-gradient(760px 440px at 88% 6%, rgba(248, 217, 188, 0.4), transparent 70%),
+    radial-gradient(620px 400px at 6% 92%, rgba(244, 232, 211, 0.75), transparent 70%);
+}
+.sig-section {
+  background:
+    radial-gradient(700px 420px at 10% 12%, rgba(248, 217, 188, 0.38), transparent 70%),
+    radial-gradient(640px 380px at 92% 88%, rgba(244, 232, 211, 0.7), transparent 70%);
+}
+.watch {
+  background:
+    radial-gradient(760px 460px at 86% 10%, rgba(248, 217, 188, 0.42), transparent 70%),
+    radial-gradient(600px 380px at 8% 90%, rgba(244, 232, 211, 0.7), transparent 70%);
+}
+.safety {
+  background:
+    radial-gradient(720px 440px at 12% 8%, rgba(248, 217, 188, 0.38), transparent 70%),
+    radial-gradient(660px 400px at 90% 92%, rgba(244, 232, 211, 0.72), transparent 70%);
+}
+
+/* bottom hill so the seam into .last-cta curves (last-cta clips its own overflow) */
+.safety::after {
+  content: "";
+  position: absolute; left: -2%; right: -2%; bottom: 0;
+  height: clamp(22px, 4vw, 48px);
+  background: var(--bg2);
+  border-radius: 100% 100% 0 0;
+  pointer-events: none;
+}
+
+.seam-paws { position: absolute; left: 0; right: 0; top: 0; height: 0; z-index: 1; pointer-events: none; }
+.seam-paws svg { position: absolute; width: clamp(13px, 1.5vw, 19px); height: clamp(13px, 1.5vw, 19px); fill: #DD7E50; color: #DD7E50; }
+.seam-paws .sp-a { left: 16%; top: clamp(-44px, -3.4vw, -26px); opacity: 0.22; transform: rotate(18deg); }
+.seam-paws .sp-b { left: 20%; top: clamp(-18px, -1.2vw, -8px); opacity: 0.3; transform: rotate(26deg); }
+.seam-paws .sp-c { left: 24.5%; top: clamp(8px, 1vw, 16px); opacity: 0.38; transform: rotate(34deg); }
+.seam-paws.right .sp-a { left: auto; right: 24.5%; transform: rotate(-18deg); }
+.seam-paws.right .sp-b { left: auto; right: 20%; transform: rotate(-26deg); }
+.seam-paws.right .sp-c { left: auto; right: 16%; transform: rotate(-34deg); }
 
 /* ---------- header ---------- */
 .site-head {

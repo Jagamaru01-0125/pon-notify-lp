@@ -317,7 +317,6 @@
         return;
       }
 
-      playPawMotion();
       addRing();
       addHeart(0);
       addHeart(1);
@@ -330,7 +329,12 @@
       });
     }
 
-    paw.addEventListener(window.PointerEvent ? "pointerdown" : "click", sendSignal);
+    /* instant squish on press; the actual send runs on click so that
+       programmatic and assistive activations also work */
+    paw.addEventListener("pointerdown", function () {
+      if (!isReducedMotion()) playPawMotion();
+    });
+    paw.addEventListener("click", sendSignal);
   }
 
   if (document.readyState === "loading") {

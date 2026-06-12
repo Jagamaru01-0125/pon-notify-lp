@@ -476,11 +476,6 @@
   white-space: nowrap;
 }
 
-@media (max-width: 720px) {
-  #story .scene.scene-1 .story-home-phone {
-    width: min(54vw, 17.9vh, 9.7rem);
-  }
-}
 /* Scene 1 home mock display fixes. */
 .story-home-phone {
   max-height: 414px;
@@ -631,33 +626,20 @@
 .story-home-phone .tabbar > span.active { color: var(--paw2); }
 .story-home-phone .tabbar svg { width: 14px; height: 14px; fill: currentColor; }
 
-/* commander integration: mobile fit for the scene-1 phone */
-@media (max-width: 720px) {
-  #story .scene.scene-1 .story-home-phone { width: min(50vw, 19vh, 10.5rem); }
-  .story-home-phone .scr-home { gap: 4px; }
-  .story-home-phone .home-pair { padding: 0.24rem 0.4rem; gap: 0.4rem; }
-  .story-home-phone .home-pair-avatar { width: 1.55rem; height: 1.55rem; }
-  .story-home-phone .home-pair-name { font-size: 0.72rem; }
-  .story-home-phone .home-pair-note { font-size: 0.55rem; }
-  .story-home-phone .home-sigs { gap: 4px; }
-  .story-home-phone .home-sigs button { min-height: 19px; font-size: 9px; padding: 2px 6px; }
-  .story-home-phone .home-send img { width: 42px; }
-  .story-home-phone .home-send p { font-size: 7.5px; margin-top: 2px; }
-  .story-home-phone .tabbar { padding: 3px 1px 5px; }
-  .story-home-phone .tabbar > span { font-size: 6.5px; gap: 1px; }
-  .story-home-phone .tabbar svg { width: 11px; height: 11px; }
-}
-
+/* commander integration: scene-1 phone, mobile fit (weak-selector layer) */
 @media (max-width: 720px) {
   .story-home-phone .scr { padding: 8px 9px; }
-  .story-home-phone .home-sigs { margin-block: 2px; }
-  .story-home-phone .home-sigs button { min-height: 17px; font-size: 8.5px; }
-  .story-home-phone .home-send img { width: 36px; }
   .story-home-phone .home-pair-avatar { width: 1.35rem; height: 1.35rem; }
+  .story-home-phone .home-send img { width: 36px; }
+  .story-home-phone .home-send p { font-size: 8px; margin-top: 2px; }
+  .story-home-phone .tabbar { padding: 3px 1px 5px; }
+  .story-home-phone .tabbar > span { font-size: 7px; gap: 1px; }
+  .story-home-phone .tabbar svg { width: 11px; height: 11px; }
 }
 
 /* commander integration: specificity-matched mobile fit */
 @media (max-width: 720px) {
+  #story .scene.scene-1 .story-home-phone { width: min(46vw, 17vh, 9.6rem); }
   #story .scene.scene-1 .story-home-phone .scr-home { gap: 4px; }
   #story .scene.scene-1 .statusbar { min-height: 0; padding: 0 2px; font-size: 8px; }
   #story .scene.scene-1 .home-pair { padding: 4px 7px; gap: 6px; }
@@ -754,12 +736,3 @@
   }
 }
 
-@media (max-width: 720px) {
-  #story .scene.scene-1 .story-home-phone { width: min(46vw, 17vh, 9.6rem); }
-}
-
-/* commander C5: readable minimum for mock micro-text on mobile */
-@media (max-width: 720px) {
-  .story-home-phone .tabbar > span { font-size: 7px; }
-  .story-home-phone .home-send p { font-size: 8px; }
-}

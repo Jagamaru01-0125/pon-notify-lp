@@ -83,15 +83,19 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; letter-spacing: 0.
 }
 
 section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
-.band { background: var(--bg2); }
-.band::before, .band::after {
-  content: ""; position: absolute; left: -2%; right: -2%;
-  height: clamp(22px, 4vw, 48px);
-  background: var(--bg2);
+.band { background: linear-gradient(180deg, #F7EDDC, var(--bg2) 34%, var(--bg-deep)); }
+/* gentle wave caps so band seams roll instead of cutting straight */
+.band::before,
+.band::after {
+  content: "";
+  position: absolute; left: 0; right: 0;
+  height: clamp(26px, 4.5vw, 60px);
   pointer-events: none;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C180,58 420,8 720,28 C1020,48 1260,12 1440,34 L1440,64 L0,64 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C180,58 420,8 720,28 C1020,48 1260,12 1440,34 L1440,64 L0,64 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
 }
-.band::before { top: 0; transform: translateY(-99%); border-radius: 100% 100% 0 0; }
-.band::after { bottom: 0; transform: translateY(99%); border-radius: 0 0 100% 100%; }
+.band::before { top: 0; transform: translateY(-99%); background: #F7EDDC; }
+.band::after  { bottom: 0; transform: translateY(99%) scaleY(-1); background: var(--bg-deep); }
 
 .empathy {
   background:
@@ -102,8 +106,8 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 .sig-section {
   background:
     linear-gradient(180deg, var(--bg), rgba(251, 245, 234, 0) 9%, rgba(251, 245, 234, 0) 91%, var(--bg)),
-    radial-gradient(700px 420px at 10% 12%, rgba(248, 217, 188, 0.38), transparent 70%),
-    radial-gradient(640px 380px at 92% 88%, rgba(244, 232, 211, 0.7), transparent 70%);
+    radial-gradient(700px 420px at 86% 8%, rgba(248, 217, 188, 0.38), transparent 70%),
+    radial-gradient(640px 380px at 8% 90%, rgba(244, 232, 211, 0.7), transparent 70%);
 }
 .watch {
   background:
@@ -114,18 +118,19 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 .safety {
   background:
     linear-gradient(180deg, var(--bg), rgba(251, 245, 234, 0) 9%, rgba(251, 245, 234, 0) 91%, var(--bg)),
-    radial-gradient(720px 440px at 12% 8%, rgba(248, 217, 188, 0.38), transparent 70%),
-    radial-gradient(660px 400px at 90% 92%, rgba(244, 232, 211, 0.72), transparent 70%);
+    radial-gradient(720px 440px at 88% 6%, rgba(248, 217, 188, 0.38), transparent 70%),
+    radial-gradient(660px 400px at 8% 92%, rgba(244, 232, 211, 0.72), transparent 70%);
 }
 
 /* bottom hill so the seam into .last-cta curves (last-cta clips its own overflow) */
 .safety::after {
   content: "";
-  position: absolute; left: -2%; right: -2%; bottom: 0;
-  height: clamp(22px, 4vw, 48px);
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: clamp(26px, 4.5vw, 60px);
   background: var(--bg2);
-  border-radius: 100% 100% 0 0;
   pointer-events: none;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C180,58 420,8 720,28 C1020,48 1260,12 1440,34 L1440,64 L0,64 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 64' preserveAspectRatio='none'%3E%3Cpath d='M0,34 C180,58 420,8 720,28 C1020,48 1260,12 1440,34 L1440,64 L0,64 Z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
 }
 
 .seam-paws { position: absolute; left: 0; right: 0; top: 0; height: 0; z-index: 1; pointer-events: none; }
@@ -212,7 +217,8 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
   padding: clamp(102px, 12vw, 148px) 0 clamp(30px, 3.5vw, 44px);
   background:
     linear-gradient(180deg, var(--bg), rgba(251, 245, 234, 0) 9%, rgba(251, 245, 234, 0) 91%, var(--bg)),
-    radial-gradient(900px 520px at 82% 8%, rgba(248, 217, 188, 0.55), transparent 70%),
+    radial-gradient(520px 380px at 84% -8%, rgba(255, 226, 184, 0.9), rgba(250, 212, 164, 0.45) 55%, transparent 78%),
+    radial-gradient(1200px 760px at 84% -8%, rgba(248, 217, 188, 0.5), transparent 72%),
     radial-gradient(700px 480px at 8% 88%, rgba(244, 232, 211, 0.9), transparent 70%),
     var(--bg);
   overflow: hidden;
@@ -872,7 +878,7 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 /* ---------- 最終CTA ---------- */
 .last-cta {
   background:
-    radial-gradient(800px 480px at 50% 0%, rgba(248, 217, 188, 0.55), transparent 75%),
+    radial-gradient(800px 480px at 76% 0%, rgba(248, 217, 188, 0.55), transparent 75%),
     linear-gradient(180deg, var(--bg2), var(--bg-deep));
   overflow: hidden;
   padding-bottom: 0;

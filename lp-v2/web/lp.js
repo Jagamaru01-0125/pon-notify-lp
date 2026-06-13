@@ -167,6 +167,7 @@
   }
 
   /* ----- 事前登録フォーム (Formspark) ----- */
+  var regEmail = "";
   document.querySelectorAll(".reg-form").forEach(function (form) {
     form.addEventListener("submit", function (ev) {
       ev.preventDefault();
@@ -188,6 +189,7 @@
         body: JSON.stringify({ email: input.value })
       }).then(function (res) {
         if (!res.ok) throw new Error("submit failed: " + res.status);
+        regEmail = input.value;
         form.style.display = "none";
         if (done) done.classList.add("show");
       }).catch(function () {
@@ -197,4 +199,20 @@
       });
     });
   });
+
+  /* ----- 登録後アンケート: 合図を届けたい相手 ----- */
+  var regPurpose = document.getElementById("reg-purpose");
+  if (regPurpose) {
+    regPurpose.querySelectorAll("button[data-purpose]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (regPurpose.classList.contains("answered")) return;
+        regPurpose.classList.add("answered");
+        fetch("https://submit-form.com/3U8b4oNGl", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ email: regEmail, partner: b.getAttribute("data-purpose") })
+        }).catch(function () {});
+      });
+    });
+  }
 })();

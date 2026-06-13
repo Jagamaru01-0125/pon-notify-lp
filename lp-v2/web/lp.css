@@ -60,7 +60,7 @@ body::after {
 .kicker {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-head); font-weight: 700;
-  font-size: 14px; letter-spacing: 0.22em;
+  font-size: 14px; letter-spacing: 0.12em;
   color: var(--paw2);
 }
 .kicker .pawg { width: 17px; height: 17px; fill: var(--paw2); }
@@ -81,6 +81,8 @@ h1, h2, h3 { font-family: var(--font-head); font-weight: 700; letter-spacing: 0.
   font-size: clamp(15px, 1.6vw, 17px);
   text-wrap: pretty;
 }
+.sec-head.left { text-align: left; }
+.sec-head.left .lede { margin-left: 0; margin-right: 0; }
 
 section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
 .band { background: linear-gradient(180deg, #F7EDDC, var(--bg2) 34%, var(--bg-deep)); }
@@ -307,11 +309,6 @@ section { position: relative; padding: clamp(58px, 7vw, 92px) 0; }
   font-size: clamp(16px, 2vw, 19px);
   color: var(--ink2);
   text-wrap: pretty;
-}
-.hero-desc {
-  margin-top: 12px;
-  font-size: clamp(14px, 1.6vw, 15.5px);
-  color: var(--mut);
 }
 .hero-points {
   list-style: none;
